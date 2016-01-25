@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="PlayScheme" proxy="com.znsx.cms.persistent.model.PlayScheme"
+		table="sv_play_scheme">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="userId" type="string">
+			<column name="user_id" />
+		</property>
+		<property name="organId" type="string">
+			<column name="organ_id" />
+		</property>
+		<property name="name" type="string">
+			<column name="scheme_name" />
+		</property>
+		<property name="schemeConfig" type="text">
+			<column name="scheme_config" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+	</class>
+</hibernate-mapping>

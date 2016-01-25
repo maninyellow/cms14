@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Role" proxy="com.znsx.cms.persistent.model.Role"
+		table="sv_role">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="type" type="string">
+			<column name="type" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		
+		<many-to-one name="organ" column="organ_id" class="Organ" />
+		
+		<set name="MenuOperations" table="r_role_menu_permission" inverse="false" cascade="save-update">
+			<key column="role_id" />
+			<many-to-many class="MenuOperation" column="menu_id" />
+		</set>
+		<set name="users" table="r_user_role" inverse="false" cascade="save-update">
+			<key column="role_id" />
+			<many-to-many class="User" column="user_id" />
+		</set> 
+	</class>
+</hibernate-mapping>

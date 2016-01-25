@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Organ" proxy="com.znsx.cms.persistent.model.Organ"
+		table="sv_organ">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="path" type="string">
+			<column name="path" />
+		</property>
+		<property name="fax" type="string">
+			<column name="fax" />
+		</property>
+		<property name="contact" type="string">
+			<column name="contact" />
+		</property>
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+		<property name="address" type="string">
+			<column name="address" />
+		</property>
+		<property name="areaCode" type="string">
+			<column name="area_code" />
+		</property>
+		<property name="imageId" type="string">
+			<column name="image_id" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="deep" type="integer">
+			<column name="deep" />
+		</property>
+		<property name="type" type="string">
+			<column name="type" />
+		</property>
+		<property name="frontOrganId" type="string">
+			<column name="front_organ_id" />
+		</property>
+		<property name="backOrganId" type="string">
+			<column name="back_organ_id" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="longitude" type="string">
+			<column name="longitude" />
+		</property>
+		<property name="latitude" type="string">
+			<column name="latitude" />
+		</property>
+		
+		<many-to-one name="parent" column="parent_id" class="Organ" />
+		
+		<joined-subclass name="com.znsx.cms.persistent.model.OrganTunnel" table="sv_organ_tunnel">  
+	        <!-- key元素指定了子类表中的外键（参照父类表的主键id），同时这也是子类表的主键 -->  
+	        	<key column="id"></key>  
+	        <property name="height" type="string">
+	            <column name="height" />
+	        </property>
+	        <property name="length" type="string">
+	            <column name="length" />
+	        </property>
+	        <property name="laneNumber" type="integer">
+	            <column name="lane_number" />
+	        </property>  
+	        <property name="capacity" type="integer">
+	            <column name="capacity" />
+	        </property>
+	        <property name="limitSpeed" type="integer">
+	            <column name="limit_speed" />
+	        </property>
+	        <property name="leftDirection" type="string">
+	            <column name="left_direction" />
+	        </property>
+	        <property name="rightDirection" type="string">
+	            <column name="right_direction" />
+	        </property>
+    	</joined-subclass> 
+    	
+		<joined-subclass name="com.znsx.cms.persistent.model.OrganRoad" table="tm_organ_road">  
+	        <!-- key元素指定了子类表中的外键（参照父类表的主键id），同时这也是子类表的主键 -->  
+	        	<key column="id"></key>  
+	        <property name="limitSpeed" type="integer">
+	            <column name="limit_speed" />
+	        </property>
+	        <property name="capacity" type="integer">
+	            <column name="capacity" />
+	        </property>
+	        <property name="laneNumber" type="integer">
+	            <column name="lane_number" />
+	        </property>  
+	        <property name="beginStakeNumber" type="string">
+	            <column name="begin_stake_number" />
+	        </property> 
+	        <property name="endStakeNumber" type="string">
+	            <column name="end_stake_number" />
+	        </property> 
+	        <property name="laneWidth" type="integer">
+	            <column name="lane_width" />
+	        </property>
+	        <property name="leftEdge" type="integer">
+	            <column name="left_edge" />
+	        </property>
+	        <property name="rightEdge" type="integer">
+	            <column name="right_edge" />
+	        </property> 
+	        <property name="centralReserveWidth" type="integer">
+	            <column name="central_reserve_width" />
+	        </property> 
+	        <property name="roadNumber" type="string">
+	            <column name="road_number" />
+	        </property> 
+    	</joined-subclass> 
+    	
+    	<joined-subclass name="com.znsx.cms.persistent.model.Tollgate" table="tm_tollgate">  
+	        <!-- key元素指定了子类表中的外键（参照父类表的主键id），同时这也是子类表的主键 -->  
+	        	<key column="id"></key>  
+	        <property name="entranceNumber" type="integer">
+	            <column name="entrance_number" />
+	        </property>
+	        <property name="exitNumber" type="integer">
+	            <column name="exit_number" />
+	        </property>
+	        <property name="navigation" type="string">
+	            <column name="navigation" />
+	        </property>
+    	</joined-subclass> 
+    	
+    	<joined-subclass name="com.znsx.cms.persistent.model.OrganBridge" table="tm_organ_bridge">  
+	        <!-- key元素指定了子类表中的外键（参照父类表的主键id），同时这也是子类表的主键 -->  
+	        	<key column="id"></key>  
+	        <property name="capacity" type="integer">
+	            <column name="capacity" />
+	        </property>
+	        <property name="limitSpeed" type="integer">
+	            <column name="limit_speed" />
+	        </property>
+	        <property name="width" type="string">
+	            <column name="width" />
+	        </property>
+	        <property name="length" type="string">
+	            <column name="length" />
+	        </property>
+    	</joined-subclass>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="RoleResourcePermission" proxy="com.znsx.cms.persistent.model.RoleResourcePermission"
+		table="r_role_resource_permission">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		
+		<discriminator column="resource_type" not-null="true" type="string" />
+		
+		<many-to-one name="role" column="role_id" class="Role" />
+		
+		<property name="privilege" type="string">
+			<column name="privilege" />
+		</property>
+		
+		<subclass name="RoleResourcePermissionCamera" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionCamera" discriminator-value="2">
+			<many-to-one name="camera" column="resource_id" class="Camera" />
+		</subclass>
+		<subclass name="RoleResourcePermissionVd" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionVd" discriminator-value="10">
+			<many-to-one name="vd" column="resource_id" class="VehicleDetector" />
+		</subclass>
+		<subclass name="RoleResourcePermissionWs" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionWs" discriminator-value="11">
+			<many-to-one name="ws" column="resource_id" class="WindSpeed" />
+		</subclass>
+		<subclass name="RoleResourcePermissionWst" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionWst" discriminator-value="12">
+			<many-to-one name="wst" column="resource_id" class="WeatherStat" />
+		</subclass>
+		<subclass name="RoleResourcePermissionLoli" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionLoli" discriminator-value="13">
+			<many-to-one name="loli" column="resource_id" class="LoLi" />
+		</subclass>
+		<subclass name="RoleResourcePermissionFd" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionFd" discriminator-value="14">
+			<many-to-one name="fd" column="resource_id" class="FireDetector" />
+		</subclass>
+		<subclass name="RoleResourcePermissionCovi" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionCovi" discriminator-value="15">
+			<many-to-one name="covi" column="resource_id" class="Covi" />
+		</subclass>
+		<subclass name="RoleResourcePermissionNod" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionNod" discriminator-value="16">
+			<many-to-one name="nod" column="resource_id" class="NoDetector" />
+		</subclass>
+		<subclass name="RoleResourcePermissionCms" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionCms" discriminator-value="17">
+			<many-to-one name="cms" column="resource_id" class="ControlDeviceCms" />
+		</subclass>
+		<subclass name="RoleResourcePermissionFan" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionFan" discriminator-value="18">
+			<many-to-one name="fan" column="resource_id" class="ControlDeviceFan" />
+		</subclass>
+		<subclass name="RoleResourcePermissionLight" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionLight" discriminator-value="19">
+			<many-to-one name="light" column="resource_id" class="ControlDeviceLight" />
+		</subclass>
+		<subclass name="RoleResourcePermissionRd" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionRd" discriminator-value="20">
+			<many-to-one name="rd" column="resource_id" class="ControlDeviceRd" />
+		</subclass>
+		<subclass name="RoleResourcePermissionWp" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionWp" discriminator-value="21">
+			<many-to-one name="wp" column="resource_id" class="ControlDeviceWp" />
+		</subclass>
+		<subclass name="RoleResourcePermissionRail" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionRail" discriminator-value="22">
+			<many-to-one name="rail" column="resource_id" class="ControlDeviceRail" />
+		</subclass>
+		<subclass name="RoleResourcePermissionIs" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionIs" discriminator-value="23">
+			<many-to-one name="is" column="resource_id" class="ControlDeviceIs" />
+		</subclass>
+		<subclass name="RoleResourcePermissionPb" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionPb" discriminator-value="24">
+			<many-to-one name="pb" column="resource_id" class="PushButton" />
+		</subclass>
+		<subclass name="RoleResourcePermissionBT" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionBT" discriminator-value="28">
+			<many-to-one name="boxTransformer" column="resource_id" class="BoxTransformer" />
+		</subclass>
+		<subclass name="RoleResourcePermissionViD" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionViD" discriminator-value="29">
+			<many-to-one name="viDetector" column="resource_id" class="ViDetector" />
+		</subclass>
+		<subclass name="RoleResourcePermissionRoadD" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionRoadD" discriminator-value="30">
+			<many-to-one name="roadDetector" column="resource_id" class="RoadDetector" />
+		</subclass>
+		<subclass name="RoleResourcePermissionBridgeD" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionBridgeD" discriminator-value="31">
+			<many-to-one name="bridgeDetector" column="resource_id" class="BridgeDetector" />
+		</subclass>
+		<subclass name="RoleResourcePermissionUP" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionUP" discriminator-value="32">
+			<many-to-one name="urgentPhone" column="resource_id" class="UrgentPhone" />
+		</subclass>
+		<subclass name="RoleResourcePermissionWall" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionWall" discriminator-value="34">
+			<many-to-one name="displayWall" column="resource_id" class="DisplayWall" />
+		</subclass>
+		<subclass name="RoleResourcePermissionSubResource" proxy="com.znsx.cms.persistent.model.RoleResourcePermissionSubResource" discriminator-value="300">
+			<many-to-one name="subResource" column="resource_id" class="SubPlatformResource" />
+		</subclass>
+	</class>
+</hibernate-mapping>

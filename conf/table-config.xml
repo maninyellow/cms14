@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <vehicle_detector>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="VDID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="RecTime" type="datetime" length="" lengthStandard="" />
+    <column name="up_fluxb" mapDAS="UpFluxB" mapStandard="UupFluxB" type="smallint" length="" lengthStandard="" />
+    <column name="up_fluxs" mapDAS="UpFluxS" mapStandard="UupFluxS" type="smallint" length="" lengthStandard="" />
+    <column name="up_flux" mapDAS="UpFlux" mapStandard="UupFlux" type="smallint" length="" lengthStandard="" />
+    <column name="dw_fluxb" mapDAS="DwFluxB" mapStandard="DwFluxB" type="smallint" length="" lengthStandard="" />
+    <column name="dw_fluxs" mapDAS="DwFluxS" mapStandard="DwFluxS" type="smallint" length="" lengthStandard="" />
+    <column name="dw_flux" mapDAS="DwFlux" mapStandard="DwFlux" type="smallint" length="" lengthStandard="" />
+    <column name="up_speed" mapDAS="UpSpeed" mapStandard="UpSpeed" type="smallint" length="" lengthStandard="" />
+    <column name="dw_speed" mapDAS="DwSpeed" mapStandard="DwSpeed" type="smallint" length="" lengthStandard="" />
+    <column name="up_occ" mapDAS="UpOcc" mapStandard="UpOccup" type="varchar" length="8" lengthStandard="6" />
+    <column name="dw_occ" mapDAS="DwOcc" mapStandard="DwOccdown" type="varchar" length="8" lengthStandard="6" />
+    <column name="lane_number" mapDAS="LaneNum" mapStandard="LaneNum" type="tinyint" length="" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="Status" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </vehicle_detector>
+  <weather_stat>
+  	<column name="standard_number" mapDAS="StandardNumber" mapStandard="WSID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="RecTime" type="datetime" length="" lengthStandard="" />
+    <column name="vis_max" mapDAS="VisMax" mapStandard="VisMax" type="smallint" length="" lengthStandard="" />
+    <column name="vis_min" mapDAS="VisMin" mapStandard="VisMin" type="smallint" length="" lengthStandard="" />
+    <column name="vis_avg" mapDAS="VisAvg" mapStandard="VisAvg" type="smallint" length="" lengthStandard="" />
+    <column name="ws_max" mapDAS="WindSpeedMax" mapStandard="WSpeedMax" type="varchar" length="8" lengthStandard="6" />
+    <column name="ws_min" mapDAS="WindSpeedMin" mapStandard="WSpeedMin" type="varchar" length="8" lengthStandard="6" />
+    <column name="ws_avg" mapDAS="WindSpeedAvg" mapStandard="WSpeedAvg" type="varchar" length="8" lengthStandard="6" />
+    <column name="wind_dir" mapDAS="WindDir" mapStandard="WindDir" type="smallint" length="" lengthStandard="" />
+    <column name="air_temp_max" mapDAS="AirTempMax" mapStandard="ATempMax" type="varchar" length="8" lengthStandard="6" />
+    <column name="air_temp_min" mapDAS="AirTempMin" mapStandard="ATempMin" type="varchar" length="8" lengthStandard="6" />
+    <column name="air_temp_avg" mapDAS="AirTempAvg" mapStandard="ATempAvg" type="varchar" length="8" lengthStandard="6" />
+    <column name="road_temp_max" mapDAS="RoadTempMax" mapStandard="RTempMax" type="varchar" length="8" lengthStandard="6" />
+    <column name="road_temp_min" mapDAS="RoadTempMin" mapStandard="RTempMin" type="varchar" length="8" lengthStandard="6" />
+    <column name="road_temp_avg" mapDAS="RoadTempAvg" mapStandard="RTempAvg" type="varchar" length="8" lengthStandard="6" />
+    <column name="humi_max" mapDAS="HumiMax" mapStandard="HumiMax" type="tinyint" length="" lengthStandard="" />
+    <column name="humi_min" mapDAS="HumiMin" mapStandard="HumiMin" type="tinyint" length="" lengthStandard="" />
+    <column name="humi_avg" mapDAS="HumiAvg" mapStandard="HumiAvg" type="tinyint" length="" lengthStandard="" />
+    <column name="rain_vol" mapDAS="RainVol" mapStandard="RainVol" type="varchar" length="8" lengthStandard="6" />
+    <column name="snow_vol" mapDAS="SnowVol" mapStandard="SnowVol" type="varchar" length="8" lengthStandard="6" />
+    <column name="road_surface" mapDAS="RoadState" mapStandard="Rsurface" type="tinyint" length="" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="Status" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </weather_stat>
+  <no_detector>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="NOxID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="NOxTime" type="datetime" length="" lengthStandard="" />
+    <column name="no_conct" mapDAS="NOConct" mapStandard="NOConct" type="smallint" length="" lengthStandard="" />
+    <column name="no2_conct" mapDAS="NO2Conct" mapStandard="NO2Conct" type="smallint" length="" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="WorkStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </no_detector>
+  <loli_detector>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="LOLIID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="LOLITime" type="datetime" length="" lengthStandard="" />
+    <column name="lo_lumi" mapDAS="LOLumi" mapStandard="LOLumi" type="smallint" length="" lengthStandard="" />
+    <column name="li_lumi" mapDAS="LILumi" mapStandard="LILumi" type="smallint" length="" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="WorkStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </loli_detector>
+  <wind_speed>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="WSID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="WSTime" type="datetime" length="" lengthStandard="" />
+    <column name="direction" mapDAS="Direction" mapStandard="Direction" type="tinyint" length="" lengthStandard="" />
+    <column name="speed" mapDAS="Speed" mapStandard="Speed" type="smallint" length="" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="WorkStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </wind_speed>
+  <control_device>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="" type="datetime" length="" lengthStandard="" />
+    <column name="type" mapDAS="Type" mapStandard="" type="smallint" length="" lengthStandard="" />
+    <column name="work_state" mapDAS="WorkState" mapStandard="" type="varchar" length="10" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="Status" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </control_device>
+  <cms>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="CMSID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="CMSTIME" type="datetime" length="" lengthStandard="" />
+    <column name="disp_cont" mapDAS="DispText" mapStandard="DispCont" type="varchar" length="50" lengthStandard="50" />
+    <column name="disp_time" mapDAS="DispTime" mapStandard="DispTime" type="int" length="" lengthStandard="" />
+    <column name="color" mapDAS="Color" mapStandard="" type="varchar" length="8" lengthStandard="" />
+    <column name="size" mapDAS="Size" mapStandard="" type="tinyint" length="" lengthStandard="" />
+    <column name="font" mapDAS="Font" mapStandard="" type="varchar" length="10" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="WorkStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </cms>
+  <covi_detector>
+    <column name="standard_number" mapDAS="StandardNumber" mapStandard="COVIID" type="varchar" length="32" lengthStandard="20" />
+    <column name="rec_time" mapDAS="RecTime" mapStandard="COVITIME" type="datetime" length="" lengthStandard="" />
+    <column name="co_conct" mapDAS="COConct" mapStandard="COConct" type="smallint" length="" lengthStandard="" />
+    <column name="visibility" mapDAS="Visibility" mapStandard="Visibility" type="smallint" length="" lengthStandard="" />
+    <column name="status" mapDAS="Status" mapStandard="WorkStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="comm_status" mapDAS="CommStatus" mapStandard="CommStatus" type="tinyint" length="" lengthStandard="" />
+    <column name="reserve" mapDAS="Reserve" mapStandard="Reserve" type="varchar" length="20" lengthStandard="20" />
+  </covi_detector>
+</root>

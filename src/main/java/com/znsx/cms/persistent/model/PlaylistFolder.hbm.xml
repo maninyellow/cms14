@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="PlaylistFolder" proxy="com.znsx.cms.persistent.model.PlaylistFolder"
+		table="tm_playlist_folder">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="subType" type="integer">
+			<column name="sub_type" />
+		</property>
+		<set name="playlists" inverse="true" cascade="all">
+		  <key column="folder_id" not-null="true"/>
+          <one-to-many class="Playlist"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

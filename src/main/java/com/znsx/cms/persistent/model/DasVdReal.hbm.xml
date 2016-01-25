@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DasVdReal" proxy="com.znsx.cms.persistent.model.DasVdReal"
+		table="vehicle_detector_real">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="recTime" type="timestamp">
+			<column name="rec_time" />
+		</property>
+		<property name="upFluxb" type="integer">
+			<column name="up_fluxb" />
+		</property>
+		<property name="upFluxs" type="integer">
+			<column name="up_fluxs" />
+		</property>
+		
+		<property name="upFlux" type="integer">
+			<column name="up_flux" />
+		</property>
+		<property name="dwFluxb" type="integer">
+			<column name="dw_fluxb" />
+		</property>
+		<property name="dwFluxs" type="integer">
+			<column name="dw_fluxs" />
+		</property>
+		<property name="dwFlux" type="integer">
+			<column name="dw_flux" />
+		</property>
+		<property name="upSpeed" type="integer">
+			<column name="up_speed" />
+		</property>
+		<property name="dwSpeed" type="integer">
+			<column name="dw_speed" />
+		</property>
+		<property name="upOcc" type="integer">
+			<column name="up_occ" />
+		</property>
+		<property name="dwOcc" type="integer">
+			<column name="dw_occ" />
+		</property>
+		<property name="laneNumber" type="short">
+			<column name="lane_number" />
+		</property>
+		<property name="status" type="short">
+			<column name="status" />
+		</property>
+		<property name="commStatus" type="short">
+			<column name="comm_status" />
+		</property>
+		<property name="reserve" type="string">
+			<column name="reserve" />
+		</property>
+		<property name="organ" type="string">
+			<column name="organ" />
+		</property>
+		
+		<property name="upFluxm" type="integer">
+			<column name="up_fluxm" />
+		</property>
+		<property name="upFluxms" type="integer">
+			<column name="up_fluxms" />
+		</property>
+		<property name="dwFluxm" type="integer">
+			<column name="dw_fluxm" />
+		</property>
+		<property name="dwFluxms" type="integer">
+			<column name="dw_fluxms" />
+		</property>
+		<property name="upHeadway" type="integer">
+			<column name="up_headway" />
+		</property>
+		<property name="dwHeadway" type="integer">
+			<column name="dw_headway" />
+		</property>
+		<property name="upSpeedb" type="integer">
+			<column name="up_speedb" />
+		</property>
+		<property name="upSpeeds" type="integer">
+			<column name="up_speeds" />
+		</property>
+		<property name="upSpeedm" type="integer">
+			<column name="up_speedm" />
+		</property>
+		<property name="upSpeedms" type="integer">
+			<column name="up_speedms" />
+		</property>
+		<property name="dwSpeedb" type="integer">
+			<column name="dw_speedb" />
+		</property>
+		<property name="dwSpeeds" type="integer">
+			<column name="dw_speeds" />
+		</property>
+		<property name="dwSpeedm" type="integer">
+			<column name="dw_speedm" />
+		</property>
+		<property name="dwSpeedms" type="integer">
+			<column name="dw_speedms" />
+		</property>
+		<property name="upOccb" type="integer">
+			<column name="up_occb" />
+		</property>
+		<property name="upOccs" type="integer">
+			<column name="up_occs" />
+		</property>
+		<property name="upOccm" type="integer">
+			<column name="up_occm" />
+		</property>
+		<property name="upOccms" type="integer">
+			<column name="up_occms" />
+		</property>
+		<property name="dwOccb" type="integer">
+			<column name="dw_occb" />
+		</property>
+		<property name="dwOccs" type="integer">
+			<column name="dw_occs" />
+		</property>
+		<property name="dwOccm" type="integer">
+			<column name="dw_occm" />
+		</property>
+		<property name="dwOccms" type="integer">
+			<column name="dw_occms" />
+		</property>
+		<property name="type" type="short">
+			<column name="type" />
+		</property>
+	</class>
+</hibernate-mapping>

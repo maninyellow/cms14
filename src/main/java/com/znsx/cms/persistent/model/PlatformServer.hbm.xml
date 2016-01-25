@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class abstract="true" name="PlatformServer" proxy="com.znsx.cms.persistent.model.PlatformServer"
+		table="sv_platform_server" discriminator-value="not null" dynamic-insert="true" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<discriminator column="type" not-null="true" type="integer" />
+		
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="location" type="string">
+			<column name="location" />
+		</property>
+		<property name="lanIp" type="string">
+			<column name="lan_ip" />
+		</property>
+		<property name="wanIp" type="string">
+			<column name="wan_ip" />
+		</property>
+		<property name="port" type="string">
+			<column name="port" />
+		</property>
+		<property name="configValue" type="string">
+			<column name="config_value" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="telnetPort" type="string">
+			<column name="telnet_port" />
+		</property>
+		<property name="forward" type="short">
+			<column name="forward" />
+		</property>
+		
+		
+		<!-- follows are no longer for use
+		<one-to-one name="property" class="PlatformServerProperty" property-ref="server" cascade="all" />
+		-->
+		
+		<subclass name="Ccs" proxy="com.znsx.cms.persistent.model.Ccs" discriminator-value="3" >
+		</subclass>
+		
+		<subclass name="Crs" proxy="com.znsx.cms.persistent.model.Crs" discriminator-value="4">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+		
+		<subclass name="Mss" proxy="com.znsx.cms.persistent.model.Mss" discriminator-value="5">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+		
+		<subclass name="Pts" proxy="com.znsx.cms.persistent.model.Pts" discriminator-value="6">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+		
+		<subclass name="Dws" proxy="com.znsx.cms.persistent.model.Dws" discriminator-value="7">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+		
+		<subclass name="Das" proxy="com.znsx.cms.persistent.model.Das" discriminator-value="8">
+		</subclass>
+		
+		<subclass name="Ens" proxy="com.znsx.cms.persistent.model.Ens" discriminator-value="9">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+		
+		<subclass name="Gis" proxy="com.znsx.cms.persistent.model.Gis" discriminator-value="27">
+		</subclass>
+		
+		<subclass name="Rms" proxy="com.znsx.cms.persistent.model.Rms" discriminator-value="10">
+		</subclass>
+		
+		<subclass name="Rss" proxy="com.znsx.cms.persistent.model.Rss" discriminator-value="11">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+		
+		<subclass name="Srs" proxy="com.znsx.cms.persistent.model.Srs" discriminator-value="12">
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		</subclass>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+delete from sv_video_device_property;
+delete from sv_device;
+delete from sv_platform_server;
+delete from sv_organ where id != '10010000000000000000';
+delete from sv_user_session;
+delete from r_role_menu_permission where role_id not in (1,2,3,4);
+delete from r_role_resource_permission;
+delete from r_user_role where role_id != 1;
+delete from sv_role where id not in (1,2,3,4);
+delete from sv_user where id = '10020000000000000001';

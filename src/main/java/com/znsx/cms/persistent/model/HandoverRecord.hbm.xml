@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="HandoverRecord" proxy="com.znsx.cms.persistent.model.HandoverRecord"
+		table="tm_handover_record">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="beginTime" type="timestamp">
+			<column name="begin_time" />
+		</property>
+		<property name="endTime" type="timestamp">
+			<column name="end_time" />
+		</property>
+		<property name="currentUserId" type="string">
+			<column name="current_user_id" />
+		</property>
+		<property name="currentUserName" type="string">
+			<column name="current_user_name" />
+		</property>
+		<property name="takeUserId" type="string">
+			<column name="take_user_id" />
+		</property>
+		<property name="takeUserName" type="string">
+			<column name="take_user_name" />
+		</property>
+		<property name="taskList" type="string">
+			<column name="task_list" />
+		</property>
+		<property name="sanitation" type="string">
+			<column name="sanitation" />
+		</property>
+	</class>
+</hibernate-mapping>

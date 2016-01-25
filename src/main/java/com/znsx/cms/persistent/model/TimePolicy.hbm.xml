@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="TimePolicy" proxy="com.znsx.cms.persistent.model.TimePolicy"
+		table="r_timepolicy_policy">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="timePolicyId" type="string">
+			<column name="time_policy_id" />
+		</property>
+		<property name="policyId" type="string">
+			<column name="policy_id" />
+		</property>
+		<property name="beginDate" type="long">
+			<column name="begin_date" />
+		</property>
+		<property name="endDate" type="long">
+			<column name="end_date" />
+		</property>
+		<property name="beginTime" type="integer">
+			<column name="begin_time" />
+		</property>
+		<property name="endTime" type="integer">
+			<column name="end_time" />
+		</property>
+	</class>
+</hibernate-mapping>

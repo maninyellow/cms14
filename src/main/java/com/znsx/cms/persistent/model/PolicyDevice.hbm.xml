@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="PolicyDevice" proxy="com.znsx.cms.persistent.model.PolicyDevice"
+		table="r_policy_device">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="policyId" type="string">
+			<column name="policy_id" />
+		</property>
+		<property name="deviceId" type="string">
+			<column name="device_id" />
+		</property>
+		<property name="type" type="short">
+			<column name="type" />
+		</property>
+		<property name="status" type="short">
+			<column name="status" />
+		</property>
+	</class>
+</hibernate-mapping>

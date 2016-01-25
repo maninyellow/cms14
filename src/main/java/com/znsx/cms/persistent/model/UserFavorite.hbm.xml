@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="UserFavorite" proxy="com.znsx.cms.persistent.model.UserFavorite"
+		table="sv_user_favorite">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="userId" type="string">
+			<column name="user_id" />
+		</property>
+		<property name="name" type="string">
+			<column name="favorite_name" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+	</class>
+</hibernate-mapping>

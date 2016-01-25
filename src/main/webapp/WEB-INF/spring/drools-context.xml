@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:drools="http://drools.org/schema/drools-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://drools.org/schema/drools-spring
+http://drools.org/schema/drools-spring.xsd">
+
+	<!-- KNOWLEDGE BASE FOR A GIVEN TYPE -->
+	<drools:kbase id="vmsBwKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/VMS_RULES_BW.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="vmsTaKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/VMS_RULES_TA.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="vmsRmKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/VMS_RULES_RM.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="fireKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/FIRE_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="hospitalKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/HOSPITAL_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="policeKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/POLICE_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="resourceKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/RESOURCE_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="roadKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/ROAD_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="roadAdminKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/ROAD_ADMIN_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+	<drools:kbase id="displayWallKBase">
+		<drools:resources>
+			<drools:resource type="DTABLE" source="classpath:rules/DISPLAY_WALL_RULES.xls" />
+		</drools:resources>
+	</drools:kbase>
+
+	<drools:ksession id="vmsBwKSession" name="vmsBwKSession"
+		type="stateless" kbase="vmsBwKBase" />
+	
+	<drools:ksession id="vmsTaKSession" name="vmsTaKSession"
+		type="stateless" kbase="vmsTaKBase" />
+		
+	<drools:ksession id="vmsRmKSession" name="vmsRmKSession"
+		type="stateless" kbase="vmsRmKBase" />
+		
+	<drools:ksession id="fireKSession" name="fireKSession"
+		type="stateless" kbase="fireKBase" />
+		
+	<drools:ksession id="hospitalKSession" name="hospitalKSession"
+		type="stateless" kbase="hospitalKBase" />
+		
+	<drools:ksession id="policeKSession" name="policeKSession"
+		type="stateless" kbase="policeKBase" />
+		
+	<drools:ksession id="resourceKSession" name="resourceKSession"
+		type="stateless" kbase="resourceKBase" />
+		
+	<drools:ksession id="roadKSession" name="roadKSession"
+		type="stateless" kbase="roadKBase" />
+		
+	<drools:ksession id="roadAdminKSession" name="roadAdminKSession"
+		type="stateless" kbase="roadAdminKBase" />
+	
+	<drools:ksession id="displayWallKSession" name="displayWallKSession"
+		type="stateless" kbase="displayWallKBase" />
+</beans>

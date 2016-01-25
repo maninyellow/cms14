@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SchemeStepInstance" proxy="com.znsx.cms.persistent.model.SchemeStepInstance"
+		table="em_scheme_step_instance">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="targetId" type="string">
+			<column name="target_id" />
+		</property>
+		<property name="targetName" type="string">
+			<column name="target_name" />
+		</property>
+		<property name="targetType" type="short">
+			<column name="target_type" />
+		</property>
+		<property name="targetNumber" type="integer">
+			<column name="target_number" />
+		</property>
+		<property name="telephone" type="string">
+			<column name="telephone" />
+		</property>
+		<property name="linkMan" type="string">
+			<column name="link_man" />
+		</property>
+		<property name="seq" type="short">
+			<column name="seq" />
+		</property>
+		<property name="requestContent" type="string">
+			<column name="request_content" />
+		</property>
+		<property name="responseContent" type="string">
+			<column name="response_content" />
+		</property>
+		<property name="beginTime" type="long">
+			<column name="begin_time" />
+		</property>
+		<property name="arriveTime" type="long">
+			<column name="arrive_time" />
+		</property>
+		<property name="endTime" type="long">
+			<column name="end_time" />
+		</property>
+		<property name="actionStatus" type="short">
+			<column name="action_status" />
+		</property>
+		<property name="state" type="short">
+			<column name="state" />
+		</property>
+		<property name="content" type="string">
+			<column name="content" />
+		</property>
+		<property name="color" type="string">
+			<column name="color" />
+		</property>
+		<property name="font" type="string">
+			<column name="font" />
+		</property>
+		<property name="playSize" type="string">
+			<column name="play_size" />
+		</property>
+		<property name="space" type="short">
+			<column name="space" />
+		</property>
+		<property name="duration" type="integer">
+			<column name="duration" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="x" type="short">
+			<column name="x" />
+		</property>
+		<property name="y" type="short">
+			<column name="y" />
+		</property>
+		<property name="beginStake" type="string">
+			<column name="begin_stake" />
+		</property>
+		<property name="endStake" type="string">
+			<column name="end_stake" />
+		</property>
+		<property name="navigation" type="string">
+			<column name="navigation" />
+		</property>
+		<property name="managerUnit" type="string">
+			<column name="manager_unit" />
+		</property>
+		<property name="location" type="string">
+			<column name="location" />
+		</property>
+		
+		<many-to-one name="schemeInstance" column="scheme_instance_id" class="SchemeInstance" />
+	</class>
+</hibernate-mapping>

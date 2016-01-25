@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="UserSession" proxy="com.znsx.cms.persistent.model.UserSession"
+		table="sv_user_session">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<discriminator formula="case when client_type in ('Omc', 'Sgc', 'Mcu', 'Cs') then 'User' when client_type = 'Ccs' then 'Ccs' when client_type = 'Crs' then 'Crs' when client_type = 'Mss' then 'Mss' when client_type = 'Pts' then 'Pts' when client_type = 'Dws' then 'Dws' when client_type = 'Das' then 'Das' when client_type = 'Ens' then 'Ens' when client_type = 'Rms' then 'Rms' when client_type = 'Rss' then 'Rss' when client_type = 'Srs' then 'Srs' end" insert="false" type="string"/>
+		<property name="ticket" type="string">
+			<column name="ticket" />
+		</property>
+		<property name="clientType" type="string">
+			<column name="client_type" />
+		</property>
+		<property name="logonName" type="string">
+			<column name="logon_name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="logonTime" type="long">
+			<column name="logon_time" />
+		</property>
+		<property name="ip" type="string">
+			<column name="ip" />
+		</property>
+		
+		<property name="organId" type="string">
+			<column name="organ_id" />
+		</property>
+		<property name="organName" type="string">
+			<column name="organ_name" />
+		</property>
+		<property name="path" type="string">
+			<column name="path" />
+		</property>
+		<property name="updateTime" type="long">
+			<column name="update_time" />
+		</property>
+		
+		<subclass name="UserSessionUser" proxy="com.znsx.cms.persistent.model.UserSessionUser" discriminator-value="User">
+			<many-to-one name="user" column="user_id" class="User" />
+		</subclass>
+		<subclass name="UserSessionCcs" proxy="com.znsx.cms.persistent.model.UserSessionCcs" discriminator-value="Ccs">
+			<many-to-one name="ccs" column="user_id" class="Ccs" />
+		</subclass>
+		<subclass name="UserSessionCrs" proxy="com.znsx.cms.persistent.model.UserSessionCrs" discriminator-value="Crs">
+			<many-to-one name="crs" column="user_id" class="Crs" />
+		</subclass>
+		<subclass name="UserSessionMss" proxy="com.znsx.cms.persistent.model.UserSessionMss" discriminator-value="Mss">
+			<many-to-one name="mss" column="user_id" class="Mss" />
+		</subclass>
+		<subclass name="UserSessionPts" proxy="com.znsx.cms.persistent.model.UserSessionPts" discriminator-value="Pts">
+			<many-to-one name="pts" column="user_id" class="Pts" />
+		</subclass>
+		<subclass name="UserSessionDws" proxy="com.znsx.cms.persistent.model.UserSessionDws" discriminator-value="Dws">
+			<many-to-one name="dws" column="user_id" class="Dws" />
+		</subclass>
+		<subclass name="UserSessionDas" proxy="com.znsx.cms.persistent.model.UserSessionDas" discriminator-value="Das">
+			<many-to-one name="das" column="user_id" class="Das" />
+		</subclass>
+		<subclass name="UserSessionEns" proxy="com.znsx.cms.persistent.model.UserSessionEns" discriminator-value="Ens">
+			<many-to-one name="ens" column="user_id" class="Ens" />
+		</subclass>
+		<subclass name="UserSessionRms" proxy="com.znsx.cms.persistent.model.UserSessionRms" discriminator-value="Rms">
+			<many-to-one name="rms" column="user_id" class="Rms" />
+		</subclass>
+		<subclass name="UserSessionRss" proxy="com.znsx.cms.persistent.model.UserSessionRss" discriminator-value="Rss">
+			<many-to-one name="rss" column="user_id" class="Rss" />
+		</subclass>
+		<subclass name="UserSessionSrs" proxy="com.znsx.cms.persistent.model.UserSessionSrs" discriminator-value="Srs">
+			<many-to-one name="srs" column="user_id" class="Srs" />
+		</subclass>
+	</class>
+</hibernate-mapping>

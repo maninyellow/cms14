@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DeviceFavorite" proxy="com.znsx.cms.persistent.model.DeviceFavorite"
+		table="r_user_device_favorite">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="favoriteId" type="string">
+			<column name="favorite_id" />
+		</property>
+		<property name="deviceId" type="string">
+			<column name="device_id" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Classes" proxy="com.znsx.cms.persistent.model.Classes"
+		table="tm_classes">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="userName" type="string">
+			<column name="user_name" />
+		</property>
+		<property name="maintainer" type="string">
+			<column name="maintainer" />
+		</property>
+		<property name="captain" type="string">
+			<column name="captain" />
+		</property>
+		<property name="beginTime" type="long">
+			<column name="begin_time" />
+		</property>
+		<property name="endTime" type="long">
+			<column name="end_time" />
+		</property>
+		<property name="remark" type="string">
+			<column name="remark" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<bean id="sysLogDAO" class="com.znsx.cms.persistent.dao.impl.SysLogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="dvrDAO" class="com.znsx.cms.persistent.dao.impl.DvrDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="cameraDAO" class="com.znsx.cms.persistent.dao.impl.CameraDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="videoDevicePropertyDAO"
+		class="com.znsx.cms.persistent.dao.impl.VideoDevicePropertyDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userDAO" class="com.znsx.cms.persistent.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="organDAO" class="com.znsx.cms.persistent.dao.impl.OrganDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ccsDAO" class="com.znsx.cms.persistent.dao.impl.CcsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="crsDAO" class="com.znsx.cms.persistent.dao.impl.CrsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="mssDAO" class="com.znsx.cms.persistent.dao.impl.MssDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ptsDAO" class="com.znsx.cms.persistent.dao.impl.PtsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userSessionDAO" class="com.znsx.cms.persistent.dao.impl.UserSessionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userFavoriteDAO" class="com.znsx.cms.persistent.dao.impl.UserFavoriteDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="manufacturerDAO" class="com.znsx.cms.persistent.dao.impl.ManufacturerDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleDAO" class="com.znsx.cms.persistent.dao.impl.RoleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="menuOperationDAO" class="com.znsx.cms.persistent.dao.impl.MenuOperationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="imageDAO" class="com.znsx.cms.persistent.dao.impl.ImageDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="dwsDAO" class="com.znsx.cms.persistent.dao.impl.DwsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="playSchemeDAO" class="com.znsx.cms.persistent.dao.impl.PlaySchemeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="presetDAO" class="com.znsx.cms.persistent.dao.impl.PresetDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roleResourcePermissionDAO"
+		class="com.znsx.cms.persistent.dao.impl.RoleResourcePermissionDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="licenseDAO" class="com.znsx.cms.persistent.dao.impl.LicenseDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deviceModelDAO" class="com.znsx.cms.persistent.dao.impl.DeviceModelDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userSessionHistoryDAO"
+		class="com.znsx.cms.persistent.dao.impl.UserSessionHistoryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deviceAlarmDAO" class="com.znsx.cms.persistent.dao.impl.DeviceAlarmDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="logOperationDAO" class="com.znsx.cms.persistent.dao.impl.LogOperationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deviceUpdateListenerDAO"
+		class="com.znsx.cms.persistent.dao.impl.DeviceUpdateListenerDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="resourceOperationDAO"
+		class="com.znsx.cms.persistent.dao.impl.ResourceOperationDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="displayWallDAO" class="com.znsx.cms.persistent.dao.impl.DisplayWallDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="monitorDAO" class="com.znsx.cms.persistent.dao.impl.MonitorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="subPlatformDAO" class="com.znsx.cms.persistent.dao.impl.SubPlatformDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="subPlatformResourceDAO"
+		class="com.znsx.cms.persistent.dao.impl.SubPlatformResourceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="dasDAO" class="com.znsx.cms.persistent.dao.impl.DasDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="vdDAO" class="com.znsx.cms.persistent.dao.impl.VehicleDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="wsDAO" class="com.znsx.cms.persistent.dao.impl.WindSpeedDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="wstDAO" class="com.znsx.cms.persistent.dao.impl.WeatherStatDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="loliDAO" class="com.znsx.cms.persistent.dao.impl.LoLiDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="ensDAO" class="com.znsx.cms.persistent.dao.impl.EnsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="fireDetectorDAO" class="com.znsx.cms.persistent.dao.impl.FireDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="coviDAO" class="com.znsx.cms.persistent.dao.impl.CoviDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="noDetectorDAO" class="com.znsx.cms.persistent.dao.impl.NoDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="pushButtonDAO" class="com.znsx.cms.persistent.dao.impl.PushButtonDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="controlDeviceDAO" class="com.znsx.cms.persistent.dao.impl.ControlDeviceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="playItemDAO" class="com.znsx.cms.persistent.dao.impl.PlayItemDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="playlistDAO" class="com.znsx.cms.persistent.dao.impl.PlaylistDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="policyDAO" class="com.znsx.cms.persistent.dao.impl.PolicyDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="policyDeviceDAO" class="com.znsx.cms.persistent.dao.impl.PolicyDeviceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="timePolicyDAO" class="com.znsx.cms.persistent.dao.impl.TimePolicyDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="cmsPublishLogDAO" class="com.znsx.cms.persistent.dao.impl.CmsPublishLogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="snDAO" class="com.znsx.cms.persistent.dao.impl.StandardNumberDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="serverInfoDAO" class="com.znsx.cms.persistent.dao.impl.ServerInfoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="organTunnelDAO" class="com.znsx.cms.persistent.dao.impl.OrganTunnelDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="dasCmsDAO" class="com.znsx.cms.persistent.dao.impl.DasCmsDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasCdDAO" class="com.znsx.cms.persistent.dao.impl.DasControlDeviceDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasCoviDAO" class="com.znsx.cms.persistent.dao.impl.DasCoviDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasDeviceStatusDAO" class="com.znsx.cms.persistent.dao.impl.DasDeviceStatusDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasLoliDAO" class="com.znsx.cms.persistent.dao.impl.DasLoliDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasNodDAO" class="com.znsx.cms.persistent.dao.impl.DasNodDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasVdDAO" class="com.znsx.cms.persistent.dao.impl.DasVdDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasWsDAO" class="com.znsx.cms.persistent.dao.impl.DasWsDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasWstDAO" class="com.znsx.cms.persistent.dao.impl.DasWstDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasTslDAO" class="com.znsx.cms.persistent.dao.impl.DasTslDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="dasLilDAO" class="com.znsx.cms.persistent.dao.impl.DasLilDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" />
+	</bean>
+	<bean id="schemeTempletDAO" class="com.znsx.cms.persistent.dao.impl.SchemeTempletDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="schemeDictionaryDAO" class="com.znsx.cms.persistent.dao.impl.SchemeDictionaryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="templetDictionaryDAO" class="com.znsx.cms.persistent.dao.impl.TempletDictionaryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="schemeDAO" class="com.znsx.cms.persistent.dao.impl.SchemeInstanceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="schemeStepDAO" class="com.znsx.cms.persistent.dao.impl.SchemeStepInstanceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="hospitalDAO" class="com.znsx.cms.persistent.dao.impl.HospitalDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="policeDAO" class="com.znsx.cms.persistent.dao.impl.PoliceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="fireDAO" class="com.znsx.cms.persistent.dao.impl.FireDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="roadAdminDAO" class="com.znsx.cms.persistent.dao.impl.RoadAdminDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="emUnitDAO" class="com.znsx.cms.persistent.dao.impl.EmUnitDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="resourceDAO" class="com.znsx.cms.persistent.dao.impl.ResourceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="storeDAO" class="com.znsx.cms.persistent.dao.impl.StoreDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="vehicleDAO" class="com.znsx.cms.persistent.dao.impl.VehicleDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="teamDAO" class="com.znsx.cms.persistent.dao.impl.TeamDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="resourceUserDAO" class="com.znsx.cms.persistent.dao.impl.ResourceUserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="organRoadDAO" class="com.znsx.cms.persistent.dao.impl.OrganRoadDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="roadMouthDAO" class="com.znsx.cms.persistent.dao.impl.RoadMouthDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="tollgateDAO" class="com.znsx.cms.persistent.dao.impl.TollgateDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="eventDAO" class="com.znsx.cms.persistent.dao.impl.EventDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="wareHouseDAO" class="com.znsx.cms.persistent.dao.impl.WareHouseDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="serviceZoneDAO" class="com.znsx.cms.persistent.dao.impl.ServiceZoneDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="stakeLibDAO" class="com.znsx.cms.persistent.dao.impl.StakeNumberLibDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="AddressBookDAO" class="com.znsx.cms.persistent.dao.impl.AddressBookDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="folderDAO" class="com.znsx.cms.persistent.dao.impl.PlaylistFolderDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="typeDefDAO" class="com.znsx.cms.persistent.dao.impl.TypeDefDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="gisDAO" class="com.znsx.cms.persistent.dao.impl.GisDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="solarBatteryDAO" class="com.znsx.cms.persistent.dao.impl.SolarBatteryDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="solarDeviceDAO" class="com.znsx.cms.persistent.dao.impl.SolarDeviceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="visitRecordDAO" class="com.znsx.cms.persistent.dao.impl.VisitRecordDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="centerWorkRecordDAO" class="com.znsx.cms.persistent.dao.impl.CenterWorkRecordDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="handoverRecordDAO" class="com.znsx.cms.persistent.dao.impl.HandoverRecordDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="boxTransformerDAO" class="com.znsx.cms.persistent.dao.impl.BoxTransformerDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="viDetectorDAO" class="com.znsx.cms.persistent.dao.impl.ViDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="roadDetectorDAO" class="com.znsx.cms.persistent.dao.impl.RoadDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="bridgeDetectorDAO" class="com.znsx.cms.persistent.dao.impl.BridgeDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="subVehicleDetectorDAO" class="com.znsx.cms.persistent.dao.impl.SubVehicleDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="syncVehicleDetectorDAO" class="com.znsx.cms.persistent.dao.impl.SyncVehicleDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="urgentPhoneDAO" class="com.znsx.cms.persistent.dao.impl.UrgentPhoneDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="organBridgeDAO" class="com.znsx.cms.persistent.dao.impl.OrganBridgeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="wallSchemeDAO" class="com.znsx.cms.persistent.dao.impl.WallSchemeDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="wallSchemeItemDAO" class="com.znsx.cms.persistent.dao.impl.WallSchemeItemDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="cmsCommandDAO" class="com.znsx.cms.persistent.dao.impl.CmsCommandDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="workPlanDAO" class="com.znsx.cms.persistent.dao.impl.WorkPlanDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dasCmsRealDAO" class="com.znsx.cms.persistent.dao.impl.DasCmsRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasCoviRealDAO" class="com.znsx.cms.persistent.dao.impl.DasCoviRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasControlDeviceRealDAO" class="com.znsx.cms.persistent.dao.impl.DasControlRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasDeviceStatusRealDAO" class="com.znsx.cms.persistent.dao.impl.DasDeviceStatusRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasLilRealDAO" class="com.znsx.cms.persistent.dao.impl.DasLilRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasLoliRealDAO" class="com.znsx.cms.persistent.dao.impl.DasLoliRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasNodRealDAO" class="com.znsx.cms.persistent.dao.impl.DasNodRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasTslRealDAO" class="com.znsx.cms.persistent.dao.impl.DasTslRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasVdRealDAO" class="com.znsx.cms.persistent.dao.impl.DasVdRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasWsRealDAO" class="com.znsx.cms.persistent.dao.impl.DasWsRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="rmsDAO" class="com.znsx.cms.persistent.dao.impl.RmsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dasWstRealDAO" class="com.znsx.cms.persistent.dao.impl.DasWstRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="deviceOnlineDAO" class="com.znsx.cms.persistent.dao.impl.DeviceOnlineDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="deviceOnlineRealDAO" class="com.znsx.cms.persistent.dao.impl.DeviceOnlineRealDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dasViDetectorRealDAO" class="com.znsx.cms.persistent.dao.impl.DasViDetectorRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasViDetectorDAO" class="com.znsx.cms.persistent.dao.impl.DasViDetectorDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasRoadDetectorRealDAO" class="com.znsx.cms.persistent.dao.impl.DasRoadDetectorRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasRoadDetectorDAO" class="com.znsx.cms.persistent.dao.impl.DasRoadDetectorDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="deviceAlarmRealDAO" class="com.znsx.cms.persistent.dao.impl.DeviceAlarmRealDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="deviceFavoriteDAO" class="com.znsx.cms.persistent.dao.impl.DeviceFavoriteDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="rssDAO" class="com.znsx.cms.persistent.dao.impl.RssDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="tmDeviceDAO" class="com.znsx.cms.persistent.dao.impl.TmDeviceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dasGpsDAO" class="com.znsx.cms.persistent.dao.impl.DasGpsDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="dasGpsRealDAO" class="com.znsx.cms.persistent.dao.impl.DasGpsRealDAOImpl">
+		<property name="sessionFactoryDAS" ref="sessionFactoryDAS" /> 
+	</bean>
+	<bean id="gpsDeviceDAO" class="com.znsx.cms.persistent.dao.impl.GPSDeviceDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="hourVdDAO" class="com.znsx.cms.persistent.dao.impl.HourVehichleDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dayVdDAO" class="com.znsx.cms.persistent.dao.impl.DayVehichleDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="monthVdDAO" class="com.znsx.cms.persistent.dao.impl.MonthVehichleDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="hourWstDAO" class="com.znsx.cms.persistent.dao.impl.HourWeatherStatDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dayWstDAO" class="com.znsx.cms.persistent.dao.impl.DayWeatherStatDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="monthWstDAO" class="com.znsx.cms.persistent.dao.impl.MonthWeatherStatDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="hourRsdDAO" class="com.znsx.cms.persistent.dao.impl.HourRoadDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dayRsdDAO" class="com.znsx.cms.persistent.dao.impl.DayRoadDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="monthRsdDAO" class="com.znsx.cms.persistent.dao.impl.MonthRoadDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="hourCoviDAO" class="com.znsx.cms.persistent.dao.impl.HourCoviDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dayCoviDAO" class="com.znsx.cms.persistent.dao.impl.DayCoviDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="monthCoviDAO" class="com.znsx.cms.persistent.dao.impl.MonthCoviDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="hourLoliDAO" class="com.znsx.cms.persistent.dao.impl.HourLoliDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dayLoliDAO" class="com.znsx.cms.persistent.dao.impl.DayLoliDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="monthLoliDAO" class="com.znsx.cms.persistent.dao.impl.MonthLoliDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="hourNoDAO" class="com.znsx.cms.persistent.dao.impl.HourNoDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="dayNoDAO" class="com.znsx.cms.persistent.dao.impl.DayNoDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="monthNoDAO" class="com.znsx.cms.persistent.dao.impl.MonthNoDetectorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="soundRecordLogDAO" class="com.znsx.cms.persistent.dao.impl.SoundRecordLogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	<bean id="srsDAO" class="com.znsx.cms.persistent.dao.impl.SrsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userOperationLogDAO" class="com.znsx.cms.persistent.dao.impl.UserOperationLogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="classesDAO" class="com.znsx.cms.persistent.dao.impl.ClassesDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

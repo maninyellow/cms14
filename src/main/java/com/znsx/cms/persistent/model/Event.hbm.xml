@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Event" proxy="com.znsx.cms.persistent.model.Event"
+		table="em_event">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="type" type="short">
+			<column name="type" />
+		</property>
+		<property name="subType" type="string">
+			<column name="sub_type" />
+		</property>
+		<property name="eventLevel" type="short">
+			<column name="event_level" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="roadType" type="short">
+			<column name="road_type" />
+		</property>
+		<property name="location" type="string">
+			<column name="location" />
+		</property>
+		<property name="beginStake" type="string">
+			<column name="begin_stake" />
+		</property>
+		<property name="endStake" type="string">
+			<column name="end_stake" />
+		</property>
+		<property name="navigation" type="short">
+			<column name="navigation" />
+		</property>
+		<property name="sendUser" type="string">
+			<column name="send_user" />
+		</property>
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+		<property name="impactProvince" type="string">
+			<column name="impact_province" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="estimatesRecoverTime" type="long">
+			<column name="estimates_recover_time" />
+		</property>
+		<property name="recoverTime" type="long">
+			<column name="recover_time" />
+		</property>
+		<property name="description" type="string">
+			<column name="description" />
+		</property>
+		<property name="hurtNumber" type="short">
+			<column name="hurt_number" />
+		</property>
+		<property name="deathNumber" type="short">
+			<column name="death_number" />
+		</property>
+		<property name="delayHumanNumber" type="integer">
+			<column name="delay_human_number" />
+		</property>
+		<property name="delayCarNumber" type="integer">
+			<column name="delay_car_number" />
+		</property>
+		<property name="damageCarNumber" type="short">
+			<column name="damage_car_number" />
+		</property>
+		<property name="crowdMeter" type="integer">
+			<column name="crowd_meter" />
+		</property>
+		<property name="lossAmount" type="integer">
+			<column name="loss_amount" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="administration" type="string">
+			<column name="administration" />
+		</property>
+		<property name="managerUnit" type="string">
+			<column name="manager_unit" />
+		</property>
+		<property name="isFire" type="short">
+			<column name="is_fire" />
+		</property>
+		<property name="laneNumber" type="short">
+			<column name="lane_number" />
+		</property>
+		<property name="roadName" type="string">
+			<column name="road_name" />
+		</property>
+		<property name="recoverStatus" type="string">
+			<column name="recover_status" />
+		</property>
+		<property name="status" type="short">
+			<column name="event_status" />
+		</property>
+		<property name="longitude" type="string">
+			<column name="longitude" />
+		</property>
+		<property name="latitude" type="string">
+			<column name="latitude" />
+		</property>
+		
+		<many-to-one name="organ" column="organ_id" class="Organ" />
+	</class>
+</hibernate-mapping>

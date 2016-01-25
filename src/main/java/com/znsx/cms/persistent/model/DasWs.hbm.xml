@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DasWs" proxy="com.znsx.cms.persistent.model.DasWs"
+		table="wind_speed">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="recTime" type="timestamp">
+			<column name="rec_time" />
+		</property>
+		<property name="direction" type="short">
+			<column name="direction" />
+		</property>
+		<property name="speed" type="integer">
+			<column name="speed" />
+		</property>
+		<property name="status" type="short">
+			<column name="status" />
+		</property>
+		<property name="commStatus" type="short">
+			<column name="comm_status" />
+		</property>
+		<property name="reserve" type="string">
+			<column name="reserve" />
+		</property>
+		<property name="organ" type="string">
+			<column name="organ" />
+		</property>
+	</class>
+</hibernate-mapping>

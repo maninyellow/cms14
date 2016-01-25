@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="logAdvice" class="com.znsx.cms.aop.advice.LogAdvice" />
+
+	<bean id="logPointcutAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="patterns">
+			<list>
+				<value>com.znsx.cms.service.iface.BaseManager.*</value>
+				<value>com.znsx.cms.service.iface.OrganManager.*</value>
+				<value>com.znsx.cms.service.iface.UserManager.*</value>
+				<value>com.znsx.cms.service.iface.DeviceManager.*</value>
+				<value>com.znsx.cms.service.iface.ImageManager.*</value>
+				<value>com.znsx.cms.service.iface.RoleManager.*</value>
+				<value>com.znsx.cms.service.iface.PlatformServerManager.*</value>
+				<value>com.znsx.cms.service.iface.MapManager.*</value>
+				<value>com.znsx.cms.service.iface.MonitorManager.*</value>
+				<value>com.znsx.cms.service.iface.TmDeviceManager.*</value>
+			</list>
+		</property>
+		<property name="advice">
+			<ref bean="logAdvice" />
+		</property>
+	</bean>
+
+	<bean id="logAutoProxy"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+
+		<property name="beanNames">
+			<list>
+				<value>*Manager</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<value>logPointcutAdvisor</value>
+		</property>
+		<!--  
+		<property name="exposeProxy">
+			<value>true</value>
+		</property>
+		-->
+	</bean>
+
+</beans>

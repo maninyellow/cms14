@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SubPlatform" proxy="com.znsx.cms.persistent.model.SubPlatform"
+		table="sv_sub_platform">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="sipIp" type="string">
+			<column name="sip_ip" />
+		</property>
+		<property name="sipPort" type="integer">
+			<column name="sip_port" />
+		</property>
+		<property name="updateTime" type="long">
+			<column name="update_time" />
+		</property>
+	</class>
+</hibernate-mapping>

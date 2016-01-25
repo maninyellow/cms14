@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="VisitRecord" proxy="com.znsx.cms.persistent.model.VisitRecord"
+		table="tm_visit_record">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="arriveTime" type="timestamp">
+			<column name="arrive_time" />
+		</property>
+		<property name="leaveTime" type="timestamp">
+			<column name="leave_time" />
+		</property>
+		<property name="visitorName" type="string">
+			<column name="visitor_name" />
+		</property>
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+		<property name="reason" type="string">
+			<column name="reason" />
+		</property>
+		<property name="workResult" type="string">
+			<column name="work_result" />
+		</property>
+		<property name="importantFlag" type="short">
+			<column name="important_flag" />
+		</property>
+		<property name="userId" type="string">
+			<column name="user_id" />
+		</property>
+		<property name="userName" type="string">
+			<column name="user_name" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="updateTime" type="timestamp">
+			<column name="update_time" />
+		</property>
+		<property name="recordTime" type="timestamp">
+			<column name="record_time" />
+		</property>
+	</class>
+</hibernate-mapping>

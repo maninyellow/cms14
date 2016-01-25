@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DeviceAlarmReal" proxy="com.znsx.cms.persistent.model.DeviceAlarmReal"
+		table="sv_device_alarm_real">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+
+		<property name="alarmTime" type="long">
+			<column name="alarm_time" />
+		</property>
+		
+		<property name="updateTime" type="long">
+			<column name="update_time" />
+		</property>
+
+		<property name="confirmTime" type="long">
+			<column name="confirm_time" />
+		</property>
+
+		<property name="confirmFlag" type="integer">
+			<column name="confirm_flag" />
+		</property>
+
+		<property name="recordFlag" type="integer">
+			<column name="record_flag" />
+		</property>
+
+		<property name="deviceType" type="string">
+			<column name="device_type" />
+		</property>
+
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+
+		<property name="deviceId" type="string">
+			<column name="device_id" />
+		</property>
+
+		<property name="organId" type="string">
+			<column name="organ_id" />
+		</property>
+
+		<property name="alarmType" type="string">
+			<column name="alarm_type" />
+		</property>
+
+		<property name="confirmUser" type="string">
+			<column name="confirm_user" />
+		</property>
+
+		<property name="deviceName" type="string">
+			<column name="device_name" />
+		</property>
+
+		<property name="alarmTypeName" type="string">
+			<column name="alarm_type_name" />
+		</property>
+
+		<property name="alarmContent" type="string">
+			<column name="alarm_content" />
+		</property>
+
+		<property name="eventReference" type="string">
+			<column name="event_reference" />
+		</property>
+
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="navigation" type="string">
+			<column name="navigation" />
+		</property>
+		<property name="maintainUser" type="string">
+			<column name="maintain_user" />
+		</property>
+		<property name="currentValue" type="string">
+			<column name="current_value" />
+		</property>
+		<property name="threshold" type="string">
+			<column name="threshold" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" />
+		</property>
+	</class>
+</hibernate-mapping>

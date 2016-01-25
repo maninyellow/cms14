@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Team" proxy="com.znsx.cms.persistent.model.Team"
+		table="em_team">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="type" type="string">
+			<column name="type" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<set name="users" inverse="true" cascade="all">
+		  <key column="team_id" not-null="true"/>
+          <one-to-many class="ResourceUser"/>
+		</set>
+		
+		<many-to-one name="unit" column="unit_id" class="EmUnit" />
+	</class>
+</hibernate-mapping>

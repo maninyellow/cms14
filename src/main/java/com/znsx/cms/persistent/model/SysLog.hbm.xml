@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SysLog" proxy="com.znsx.cms.persistent.model.SysLog"
+		table="sv_sys_log">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="resourceId" type="string">
+			<column name="resource_id" />
+		</property>
+		<property name="resourceName" type="string">
+			<column name="resource_name" />
+		</property>
+		<property name="resourceType" type="string">
+			<column name="resource_type" />
+		</property>
+		<property name="targetId" type="string">
+			<column name="target_id" />
+		</property>
+		<property name="targetName" type="string">
+			<column name="target_name" />
+		</property>
+		<property name="targetType" type="string">
+			<column name="target_type" />
+		</property>
+		<property name="logTime" type="long">
+			<column name="log_time" />
+		</property>
+		<property name="operationType" type="string">
+			<column name="operation_type" />
+		</property>
+		<property name="operationCode" type="string">
+			<column name="operation_code" />
+		</property>
+		<property name="operationName" type="string">
+			<column name="operation_name" />
+		</property>
+		<property name="successFlag" type="string">
+			<column name="success_flag" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="organId" type="string">
+			<column name="organ_id" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Resource" proxy="com.znsx.cms.persistent.model.Resource"
+		table="em_resource">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="abilityType" type="string">
+			<column name="ability_type" />
+		</property>
+		<property name="unitType" type="string">
+			<column name="unit" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		
+		
+		<many-to-one name="unit" column="unit_id" class="EmUnit" />
+	</class>
+</hibernate-mapping>

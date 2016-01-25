@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="interfaceAdvice" class="com.znsx.cms.aop.advice.InterfaceAdvice" />
+
+	<bean id="interfacePointcutAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="patterns">
+			<list>
+				<value>com.znsx.cms.web.controller.*.*</value>
+			</list>
+		</property>
+		<property name="advice">
+			<ref bean="interfaceAdvice" />
+		</property>
+	</bean>
+
+	<bean id="interfaceAutoProxy"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+
+		<property name="beanNames">
+			<list>
+				<value>*Controller</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<value>interfacePointcutAdvisor</value>
+		</property>
+		<!--  
+		<property name="exposeProxy">
+			<value>true</value>
+		</property>
+		-->
+	</bean>
+
+</beans>

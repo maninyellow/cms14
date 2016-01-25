@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="MonthLoliDetector" proxy="com.znsx.cms.persistent.model.MonthLoliDetector"
+		table="month_loli_detector">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="loAvg" type="float">
+			<column name="lo_avg" />
+		</property>
+		<property name="loMax" type="float">
+			<column name="lo_max" />
+		</property>
+		<property name="loMin" type="float">
+			<column name="lo_min" />
+		</property>
+		<property name="liAvg" type="float">
+			<column name="li_avg" />
+		</property>
+		<property name="liMax" type="float">
+			<column name="li_max" />
+		</property>
+		<property name="liMin" type="float">
+			<column name="li_min" />
+		</property>
+		<property name="dateTime" type="long">
+			<column name="date_time" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="HourRoadDetector" proxy="com.znsx.cms.persistent.model.HourRoadDetector"
+		table="hour_road_detector">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="roadTempMax" type="float">
+			<column name="road_temp_max" />
+		</property>
+		<property name="roadTempMin" type="float">
+			<column name="road_temp_min" />
+		</property>
+		<property name="roadTempAvg" type="float">
+			<column name="road_temp_avg" />
+		</property>
+		<property name="rainVol" type="float">
+			<column name="rain_vol" />
+		</property>
+		<property name="snowVol" type="float">
+			<column name="snow_vol" />
+		</property>
+		<property name="roadSurface" type="integer">
+			<column name="road_surface" />
+		</property>
+		<property name="dateTime" type="long">
+			<column name="date_time" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

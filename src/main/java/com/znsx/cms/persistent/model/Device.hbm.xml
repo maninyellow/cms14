@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class abstract="true" name="Device" proxy="com.znsx.cms.persistent.model.Device"
+		table="sv_device" discriminator-value="not null" dynamic-insert="true" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<discriminator column="type" not-null="true" type="integer"/>
+		
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="subType" type="string">
+			<column name="sub_type" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="location" type="string">
+			<column name="location" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="channelAmount" type="integer">
+			<column name="channel_amount" />
+		</property>
+		<property name="status" type="integer">
+			<column name="status" />
+		</property>
+		<property name="longitude" type="string">
+			<column name="longitude" />
+		</property>
+		<property name="latitude" type="string">
+			<column name="latitude" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="navigation" type="string">
+			<column name="navigation" />
+		</property>
+		
+		<many-to-one name="organ" column="organ_id" class="Organ" />
+		
+		<many-to-one name="manufacturer" column="manufacturer_id" class="Manufacturer" />
+		
+		<one-to-one name="property" class="VideoDeviceProperty" cascade="all"/>
+		
+		<many-to-one name="deviceModel" column="device_model_id" class="DeviceModel" />
+		
+		<subclass name="Dvr" discriminator-value="1" >
+			<property name="transport" type="string">
+				<column name="transport" />
+			</property>
+			<property name="mode" type="string">
+				<column name="access_mode" />
+			</property>
+			<property name="maxConnect" type="integer">
+				<column name="max_connect" />
+			</property>
+			<property name="linkType" type="string">
+				<column name="link_type" />
+			</property>
+			<property name="lanIp" type="string">
+				<column name="lan_ip" />
+			</property>
+			<property name="port" type="string">
+				<column name="port" />
+			</property>
+			<property name="aicAmount" type="integer">
+				<column name="aic_amount" />
+			</property>
+			<property name="aocAmount" type="integer">
+				<column name="aoc_amount" />
+			</property>
+			
+			<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+			
+			<many-to-one name="pts" column="pts_id" class="Pts" />
+		</subclass>
+		
+		<subclass name="Camera" discriminator-value="2">
+			<property name="channelNumber" type="short">
+				<column name="channel_number" />
+			</property>
+			
+			<many-to-one name="mss" column="mss_id" class="Mss" />
+			
+			<many-to-one name="crs" column="crs_id" class="Crs" />
+			
+			<many-to-one name="rms" column="rms_id" class="Rms" />
+			
+			<many-to-one name="parent" column="parent_id" class="Dvr" />
+		</subclass>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="PlatformServerProperty" proxy="com.znsx.cms.persistent.model.PlatformServerProperty"
+		table="sv_platform_server_property">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="assigned" />
+		</id>
+		<property name="memory" type="integer">
+			<column name="memory" />
+		</property>
+		<property name="hardpan" type="integer">
+			<column name="hardpan" />
+		</property>
+		<property name="cpu" type="string">
+			<column name="cpu" />
+		</property>
+		<property name="networkCard" type="string">
+			<column name="network_card" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		
+		<!-- follows are no longer for use  
+		<many-to-one name="server" class="PlatformServer" column="server_id" not-null="true" outer-join="false" unique="true" />
+		-->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SchemeDictionary" proxy="com.znsx.cms.persistent.model.SchemeDictionary"
+		table="em_scheme_dictionary">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="targetClass" type="string">
+			<column name="target_class" />
+		</property>
+		<property name="targetType" type="short">
+			<column name="target_type" />
+		</property>
+		<property name="description" type="string">
+			<column name="description" />
+		</property>
+		
+		<set name="templetDictionarys" inverse="true" cascade="all">
+			<key column="scheme_dictionary_id" />
+			<one-to-many class="TempletDictionary" />
+		</set>
+	</class>
+</hibernate-mapping>

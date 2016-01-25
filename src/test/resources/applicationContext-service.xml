@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean id="txProxyTemplate" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+			<!-- 
+				<prop key="update*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="create*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="delete*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="delete*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="*Login"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="*Logoff"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="bind*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="batch*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="check*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="*Register"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				<prop key="upload*"> PROPAGATION_REQUIRED,-BusinessException
+				</prop>
+				 -->
+				<prop key="*">PROPAGATION_REQUIRED,-BusinessException</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="txProxyTemplateDAS" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="transactionManagerDAS" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,-BusinessException</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="baseManager" class="com.znsx.cms.service.impl.BaseManagerImpl">
+	</bean>
+
+	<bean id="sysLogManager" class="com.znsx.cms.service.impl.SysLogManagerImpl">
+	</bean>
+
+	<bean id="organManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.OrganManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="userManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.UserManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="deviceManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.DeviceManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="platformServerManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.PlatformServerManagerImpl" />
+		</property>
+	</bean>
+
+	<bean id="roleManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.RoleManagerImpl" />
+		</property>
+	</bean>
+	<bean id="imageManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.ImageManagerImpl" />
+		</property>
+	</bean>
+	<bean id="licenseManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.LicenseManagerImpl" />
+		</property>
+	</bean>
+	<bean id="monitorManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.MonitorManagerImpl" />
+		</property>
+	</bean>
+	<bean id="connectManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.ConnectManagerImpl" />
+		</property>
+	</bean>
+	<bean id="mapManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.MapManagerImpl" />
+		</property>
+	</bean>
+	<bean id="tmDeviceManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.TmDeviceManagerImpl" />
+		</property>
+	</bean>
+	<bean id="emManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.EmManagerImpl" />
+		</property>
+	</bean>
+	<bean id="workRecordManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.WorkRecordManagerImpl" />
+		</property>
+	</bean>
+	
+	
+	<bean id="dasDataManager" parent="txProxyTemplateDAS">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.DasDataManagerImpl" />
+		</property>
+	</bean>
+	
+	<bean id="webGisManager" parent="txProxyTemplateDAS">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.WebGisManagerImpl" />
+		</property>
+	</bean>
+	
+	<bean id="ruleManager" class="com.znsx.cms.service.impl.RuleManagerImpl">
+	</bean>
+	
+	<bean id="roadStatusManager" parent="txProxyTemplateDAS">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.RoadStatusManagerImpl" />
+		</property>
+	</bean>
+	
+	<bean id="statManager" class="com.znsx.cms.service.impl.StatManagerImpl">
+	</bean>
+	
+	<bean id="reduceManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.znsx.cms.service.impl.ReduceManagerImpl" />
+		</property>
+	</bean>
+</beans>

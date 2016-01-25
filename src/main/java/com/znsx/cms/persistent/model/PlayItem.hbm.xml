@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="PlayItem" proxy="com.znsx.cms.persistent.model.PlayItem"
+		table="tm_play_item">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="font" type="string">
+			<column name="font" />
+		</property>
+		<property name="size" type="string">
+			<column name="play_size" />
+		</property>
+		<property name="color" type="string">
+			<column name="color" />
+		</property>
+		<property name="wordSpace" type="short">
+			<column name="word_space" />
+		</property>
+		<property name="twinklePeriod" type="integer">
+			<column name="twinkle_period" />
+		</property>
+		<property name="content" type="string">
+			<column name="content" />
+		</property>
+		<property name="duration" type="integer">
+			<column name="duration" />
+		</property>
+		<property name="x" type="string">
+			<column name="x" />
+		</property>
+		<property name="y" type="string">
+			<column name="y" />
+		</property>
+		<property name="type" type="short">
+			<column name="type" />
+		</property>
+		
+		<many-to-one name="playlist" column="playlist_id" class="Playlist" />
+	</class>
+</hibernate-mapping>

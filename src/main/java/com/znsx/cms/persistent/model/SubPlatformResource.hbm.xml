@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SubPlatformResource" proxy="com.znsx.cms.persistent.model.SubPlatformResource"
+		table="sv_sub_platform_resource">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="type" type="string">
+			<column name="type" />
+		</property>
+		<property name="protocol" type="string">
+			<column name="protocol" />
+		</property>
+		<property name="auth" type="string">
+			<column name="auth" />
+		</property>
+		<property name="path" type="string">
+			<column name="path" />
+		</property>
+		<property name="updateTime" type="long">
+			<column name="update_time" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="longitude" type="string">
+			<column name="longitude" />
+		</property>
+		<property name="latitude" type="string">
+			<column name="latitude" />
+		</property>
+		<property name="roadName" type="string">
+			<column name="road_name" />
+		</property>
+		<property name="navigation" type="string">
+			<column name="navigation" />
+		</property>
+		<property name="width" type="integer">
+			<column name="width" />
+		</property>
+		<property name="height" type="integer">
+			<column name="height" />
+		</property>
+		<property name="manufacturer" type="string">
+			<column name="manufacturer" />
+		</property>
+		<property name="model" type="string">
+			<column name="model" />
+		</property>
+		<property name="owner" type="string">
+			<column name="owner" />
+		</property>
+		<property name="civilCode" type="string">
+			<column name="civil_code" />
+		</property>
+		<property name="block" type="string">
+			<column name="block" />
+		</property>
+		<property name="address" type="string">
+			<column name="address" />
+		</property>
+		<property name="parental" type="integer">
+			<column name="parental" />
+		</property>
+		<property name="safetyWay" type="integer">
+			<column name="safety_way" />
+		</property>
+		<property name="registerWay" type="integer">
+			<column name="register_way" />
+		</property>
+		<property name="certNum" type="string">
+			<column name="cert_num" />
+		</property>
+		<property name="certifiable" type="integer">
+			<column name="certifiable" />
+		</property>
+		<property name="errCode" type="integer">
+			<column name="err_code" />
+		</property>
+		<property name="endTime" type="long">
+			<column name="end_time" />
+		</property>
+		<property name="secrecy" type="integer">
+			<column name="secrecy" />
+		</property>
+		<property name="ip" type="string">
+			<column name="ip" />
+		</property>
+		<property name="port" type="integer">
+			<column name="port" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" />
+		</property>
+		<property name="ptzType" type="string">
+			<column name="ptz_type" />
+		</property>
+		<property name="gatewayId" type="string">
+			<column name="gateway_id" />
+		</property>
+		
+		<many-to-one name="parent" column="parent_id" class="SubPlatformResource" />
+	</class>
+</hibernate-mapping>

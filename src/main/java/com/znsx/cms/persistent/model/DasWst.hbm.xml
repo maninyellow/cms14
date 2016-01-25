@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DasWst" proxy="com.znsx.cms.persistent.model.DasWst"
+		table="weather_stat">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="recTime" type="timestamp">
+			<column name="rec_time" />
+		</property>
+		<property name="visMax" type="integer">
+			<column name="vis_max" />
+		</property>
+		<property name="visMin" type="integer">
+			<column name="vis_min" />
+		</property>
+		<property name="visAvg" type="integer">
+			<column name="vis_avg" />
+		</property>
+		<property name="wsMax" type="string">
+			<column name="ws_max" />
+		</property>
+		<property name="wsMin" type="string">
+			<column name="ws_min" />
+		</property>
+		<property name="wsAvg" type="string">
+			<column name="ws_avg" />
+		</property>
+		<property name="windDir" type="integer">
+			<column name="wind_dir" />
+		</property>
+		<property name="airTempMax" type="string">
+			<column name="air_temp_max" />
+		</property>
+		<property name="airTempMin" type="string">
+			<column name="air_temp_min" />
+		</property>
+		<property name="airTempAvg" type="string">
+			<column name="air_temp_avg" />
+		</property>
+		<property name="roadTempMax" type="string">
+			<column name="road_temp_max" />
+		</property>
+		<property name="roadTempMin" type="string">
+			<column name="road_temp_min" />
+		</property>
+		<property name="roadTempAvg" type="string">
+			<column name="road_temp_avg" />
+		</property>
+		<property name="humiMax" type="short">
+			<column name="humi_max" />
+		</property>
+		<property name="humiMin" type="short">
+			<column name="humi_min" />
+		</property>
+		<property name="humiAvg" type="string">
+			<column name="humi_avg" />
+		</property>
+		<property name="rainVol" type="string">
+			<column name="rain_vol" />
+		</property>
+		<property name="snowVol" type="string">
+			<column name="snow_vol" />
+		</property>
+		<property name="roadSurface" type="short">
+			<column name="road_surface" />
+		</property>
+		<property name="status" type="short">
+			<column name="status" />
+		</property>
+		<property name="commStatus" type="short">
+			<column name="comm_status" />
+		</property>
+		<property name="reserve" type="string">
+			<column name="reserve" />
+		</property>
+		<property name="organ" type="string">
+			<column name="organ" />
+		</property>
+	</class>
+</hibernate-mapping>

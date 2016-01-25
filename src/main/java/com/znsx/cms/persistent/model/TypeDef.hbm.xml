@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="TypeDef" proxy="com.znsx.cms.persistent.model.TypeDef"
+		table="sv_type_definition">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="type" type="integer">
+			<column name="resource_type" />
+		</property>
+		<property name="typeName" type="string">
+			<column name="resource_type_name" />
+		</property>
+		<property name="subType" type="integer">
+			<column name="sub_type" />
+		</property>
+		<property name="subTypeName" type="string">
+			<column name="sub_type_name" />
+		</property>
+	</class>
+</hibernate-mapping>

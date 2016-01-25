@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="Monitor" proxy="com.znsx.cms.persistent.model.Monitor"
+		table="sv_monitor">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="channelNumber" type="integer">
+			<column name="channel_number" />
+		</property>
+		<property name="x" type="string">
+			<column name="x" />
+		</property>
+		<property name="y" type="string">
+			<column name="y" />
+		</property>
+		<property name="width" type="string">
+			<column name="width" />
+		</property>
+		<property name="height" type="string">
+			<column name="height" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property><property name="name" type="string">
+			<column name="name" />
+		</property>
+
+		<many-to-one name="organ" column="organ_id"
+			class="Organ" />
+		<many-to-one name="displayWall" column="wall_id"
+			class="DisplayWall" />
+		<many-to-one name="dws" column="dws_id"
+			class="Dws" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="LoLi" proxy="com.znsx.cms.persistent.model.LoLi"
+		table="tm_loli">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="period" type="integer">
+			<column name="period" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="longitude" type="string">
+			<column name="longitude" />
+		</property>
+		<property name="latitude" type="string">
+			<column name="latitude" />
+		</property>
+		<property name="loLumiMax" type="short">
+			<column name="lo_lumi_max" />
+		</property>
+		<property name="loLumiMin" type="short">
+			<column name="lo_lumi_min" />
+		</property>
+		<property name="liLumiMax" type="short">
+			<column name="li_lumi_max" />
+		</property>
+		<property name="liLumiMin" type="short">
+			<column name="li_lumi_min" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="reserve" type="string">
+			<column name="reserve" />
+		</property>
+		<property name="navigation" type="string">
+			<column name="navigation" />
+		</property>
+		<property name="ip" type="string">
+			<column name="ip" />
+		</property>
+		<property name="port" type="integer">
+			<column name="port" />
+		</property>
+
+		<many-to-one name="organ" column="organ_id" class="Organ" />
+
+		<many-to-one name="das" column="das_id" class="Das" />
+	</class>
+</hibernate-mapping>

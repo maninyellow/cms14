@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="ServerInfo" proxy="com.znsx.cms.persistent.model.ServerInfo"
+		table="sv_server_info">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="motherBoardSN" type="string">
+			<column name="mother_board_sn" />
+		</property>
+		<property name="cpuId" type="string">
+			<column name="cpu_id" />
+		</property>
+		<property name="mac" type="string">
+			<column name="mac" />
+		</property>
+	</class>
+</hibernate-mapping>

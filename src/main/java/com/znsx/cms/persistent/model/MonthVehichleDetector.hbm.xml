@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="MonthVehichleDetector" proxy="com.znsx.cms.persistent.model.MonthVehichleDetector"
+		table="month_vehicle_detector">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="upOccs" type="float">
+			<column name="up_occs" />
+		</property>
+		<property name="dwOccs" type="float">
+			<column name="dw_occs" />
+		</property>
+		<property name="upOccm" type="float">
+			<column name="up_occm" />
+		</property>
+		<property name="dwOccm" type="float">
+			<column name="dw_occm" />
+		</property>
+		<property name="upOccb" type="float">
+			<column name="up_occb" />
+		</property>
+		<property name="dwOccb" type="float">
+			<column name="dw_occb" />
+		</property>
+		<property name="upOcc" type="float">
+			<column name="up_occavg" />
+		</property>
+		<property name="dwOcc" type="float">
+			<column name="dw_occavg" />
+		</property>
+		<property name="upSpeeds" type="float">
+			<column name="up_speeds" />
+		</property>
+		<property name="dwSpeeds" type="float">
+			<column name="dw_speeds" />
+		</property>
+		<property name="upSpeedm" type="float">
+			<column name="up_speedm" />
+		</property>
+		<property name="dwSpeedm" type="float">
+			<column name="dw_speedm" />
+		</property>
+		<property name="upSpeedb" type="float">
+			<column name="up_speedb" />
+		</property>
+		<property name="dwSpeedb" type="float">
+			<column name="dw_speedb" />
+		</property>
+		<property name="upSpeed" type="float">
+			<column name="up_speedavg" />
+		</property>
+		<property name="dwSpeed" type="float">
+			<column name="dw_speedavg" />
+		</property>
+		<property name="upFlows" type="float">
+			<column name="up_fluxs" />
+		</property>
+		<property name="dwFlows" type="float">
+			<column name="dw_fluxs" />
+		</property>
+		<property name="upFlowm" type="float">
+			<column name="up_fluxm" />
+		</property>
+		<property name="dwFlowm" type="float">
+			<column name="dw_fluxm" />
+		</property>
+		<property name="upFlowb" type="float">
+			<column name="up_fluxb" />
+		</property>
+		<property name="dwFlowb" type="float">
+			<column name="dw_fluxb" />
+		</property>
+		<property name="upFlow" type="float">
+			<column name="up_flux" />
+		</property>
+		<property name="dwFlow" type="float">
+			<column name="dw_flux" />
+		</property>
+		<property name="upHeadway" type="float">
+			<column name="up_headway" />
+		</property>
+		<property name="dwHeadway" type="float">
+			<column name="dw_headway" />
+		</property>
+		<property name="dateTime" type="long">
+			<column name="date_time" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

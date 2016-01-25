@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="User" proxy="com.znsx.cms.persistent.model.User"
+		table="sv_user">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="logonName" type="string">
+			<column name="logon_name" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" />
+		</property>
+		<property name="sex" type="short">
+			<column name="sex" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" />
+		</property>
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+		<property name="address" type="string">
+			<column name="address" />
+		</property>
+		<property name="priority" type="short">
+			<column name="priority" />
+		</property>
+		<property name="imageId" type="string">
+			<column name="image_id" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="status" type="short">
+			<column name="status" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		<property name="maxConnect" type="integer">
+			<column name="max_connect" />
+		</property>
+		
+		<many-to-one name="ccs" column="ccs_id" class="Ccs" />
+		
+		<many-to-one name="organ" column="organ_id" class="Organ" />
+		
+		<set name="roles" table="r_user_role" inverse="true" cascade="save-update">
+			<key column="user_id" />
+			<many-to-many class="Role" column="role_id" />
+		</set>
+	</class>
+</hibernate-mapping>

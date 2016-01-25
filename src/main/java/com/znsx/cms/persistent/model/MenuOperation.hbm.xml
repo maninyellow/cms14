@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="MenuOperation" proxy="com.znsx.cms.persistent.model.MenuOperation"
+		table="sv_menu_operation">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="menu_name" />
+		</property>
+		<property name="menuCode" type="string">
+			<column name="menu_code" />
+		</property>
+		<property name="menuAction" type="long">
+			<column name="menu_action" />
+		</property>
+		<property name="note" type="string">
+			<column name="note" />
+		</property>
+		
+		<many-to-one name="parent" column="parent_id" class="MenuOperation" />
+		
+	</class>
+</hibernate-mapping>

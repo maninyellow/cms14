@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DayCoviDetector" proxy="com.znsx.cms.persistent.model.DayCoviDetector"
+		table="day_covi_detector">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="coAvg" type="float">
+			<column name="co_avg" />
+		</property>
+		<property name="coMax" type="float">
+			<column name="co_max" />
+		</property>
+		<property name="coMin" type="float">
+			<column name="co_min" />
+		</property>
+		<property name="viAvg" type="float">
+			<column name="vi_avg" />
+		</property>
+		<property name="viMax" type="float">
+			<column name="vi_max" />
+		</property>
+		<property name="viMin" type="float">
+			<column name="vi_min" />
+		</property>
+		<property name="dateTime" type="long">
+			<column name="date_time" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DayWeatherStat" proxy="com.znsx.cms.persistent.model.DayWeatherStat"
+		table="day_weather_stat">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="visMax" type="float">
+			<column name="vis_max" />
+		</property>
+		<property name="visMin" type="float">
+			<column name="vis_min" />
+		</property>
+		<property name="visAvg" type="float">
+			<column name="vis_avg" />
+		</property>
+		<property name="wsMax" type="float">
+			<column name="ws_max" />
+		</property>
+		<property name="wsMin" type="float">
+			<column name="ws_min" />
+		</property>
+		<property name="wsAvg" type="float">
+			<column name="ws_avg" />
+		</property>
+		<property name="winDir" type="float">
+			<column name="wind_dir" />
+		</property>
+		<property name="airTempMax" type="float">
+			<column name="air_temp_max" />
+		</property>
+		<property name="airTempMin" type="float">
+			<column name="air_temp_min" />
+		</property>
+		<property name="airTempAvg" type="float">
+			<column name="air_temp_avg" />
+		</property>
+		<property name="roadTempMax" type="float">
+			<column name="road_temp_max" />
+		</property>
+		<property name="roadTempMin" type="float">
+			<column name="road_temp_min" />
+		</property>
+		<property name="roadTempAvg" type="float">
+			<column name="road_temp_avg" />
+		</property>
+		<property name="humiMax" type="float">
+			<column name="humi_max" />
+		</property>
+		<property name="humiMin" type="float">
+			<column name="humi_min" />
+		</property>
+		<property name="humiAvg" type="float">
+			<column name="humi_avg" />
+		</property>
+		<property name="rainVol" type="float">
+			<column name="rain_vol" />
+		</property>
+		<property name="snowVol" type="float">
+			<column name="snow_vol" />
+		</property>
+		<property name="roadSurface" type="integer">
+			<column name="road_surface" />
+		</property>
+		<property name="dateTime" type="long">
+			<column name="date_time" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

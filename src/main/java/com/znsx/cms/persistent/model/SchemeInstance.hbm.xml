@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SchemeInstance" proxy="com.znsx.cms.persistent.model.SchemeInstance"
+		table="em_scheme_instance">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="templetId" type="string">
+			<column name="scheme_templet_id" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="eventId" type="string">
+			<column name="event_id" />
+		</property>
+		<property name="createTime" type="long">
+			<column name="create_time" />
+		</property>
+		<property name="createUserId" type="string">
+			<column name="create_user_id" />
+		</property>
+		<property name="createUserName" type="string">
+			<column name="create_user_name" />
+		</property>
+		<property name="actionStatus" type="short">
+			<column name="action_status" />
+		</property>
+		<property name="updateTime" type="long">
+			<column name="update_time" />
+		</property>
+		
+		<set name="steps" inverse="true" cascade="all">
+			<key column="scheme_instance_id" />
+			<one-to-many class="SchemeStepInstance" />
+		</set>
+	</class>
+</hibernate-mapping>

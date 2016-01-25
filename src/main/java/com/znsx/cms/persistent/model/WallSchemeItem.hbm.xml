@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="WallSchemeItem" proxy="com.znsx.cms.persistent.model.WallSchemeItem"
+		table="sv_display_wall_scheme_item">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="content" type="string">
+			<column name="content" />
+		</property>
+		
+		<many-to-one name="wallScheme" column="display_wall_scheme_id" class="WallScheme" />
+		
+		<many-to-one name="monitor" column="monitor_id" class="Monitor" />
+	</class>
+</hibernate-mapping>

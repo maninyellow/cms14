@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="TempletDictionary" proxy="com.znsx.cms.persistent.model.TempletDictionary"
+		table="r_templet_dictionary">
+		<cache usage="read-only"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="seq" type="short">
+			<column name="seq" />
+		</property>
+		<property name="range" type="integer">
+			<column name="search_range" />
+		</property>
+		
+		<many-to-one name="schemeTemplet" column="scheme_templet_id" class="SchemeTemplet" not-null="true" />
+		
+		<many-to-one name="schemeDictionary" column="scheme_dictionary_id" class="SchemeDictionary" not-null="true" />
+	</class>
+</hibernate-mapping>

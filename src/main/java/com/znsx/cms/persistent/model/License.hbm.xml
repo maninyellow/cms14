@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="License" proxy="com.znsx.cms.persistent.model.License"
+		table="sv_license">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		
+		<property name="macList" type="string">
+			<column name="mac_list" />
+		</property>
+		<property name="cpuidList" type="string">
+			<column name="cpuid_list" />
+		</property>
+		<property name="motherBoardList" type="string">
+			<column name="mother_board_list" />
+		</property>
+		<property name="cameraAmount" type="string">
+			<column name="camera_amount" />
+		</property>
+		<property name="userAmount" type="string">
+			<column name="user_amount" />
+		</property>
+		<property name="deviceAmount" type="string">
+			<column name="device_amount" />
+		</property>
+		<property name="expireTime" type="string">
+			<column name="expire_time" />
+		</property>
+		<property name="signature" type="string">
+			<column name="signature" />
+		</property>
+		<property name="projectName" type="string">
+			<column name="project_name" />
+		</property>
+		<property name="linkMan" type="string">
+			<column name="link_man" />
+		</property>
+		<property name="contact" type="string">
+			<column name="contact" />
+		</property>
+	</class>
+</hibernate-mapping>

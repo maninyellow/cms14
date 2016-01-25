@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="ServiceZone" proxy="com.znsx.cms.persistent.model.ServiceZone"
+		table="tm_service_zone">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="level" type="string">
+			<column name="zone_level" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="linkMan" type="string">
+			<column name="link_man" />
+		</property>
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+		<property name="longitude" type="string">
+			<column name="longitude" />
+		</property>
+		<property name="latitude" type="string">
+			<column name="latitude" />
+		</property>
+		<property name="navigation" type="string">
+			<column name="navigation" />
+		</property>
+
+		<many-to-one name="organ" column="organ_id" class="Organ" />
+		
+	</class>
+</hibernate-mapping>

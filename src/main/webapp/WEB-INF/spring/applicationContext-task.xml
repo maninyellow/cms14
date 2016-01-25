@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/task     
+    http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<bean id="sysLogTask" class="com.znsx.cms.persistent.dao.task.SysLogTask" />
+	<bean id="checkSessionTask" class="com.znsx.cms.service.task.CheckSessionTask" />
+	<bean id="updateDeviceListenerTask" class="com.znsx.cms.service.task.UpdateDeviceListenerTask" />
+	<bean id="dasSyncDataTask" class="com.znsx.cms.service.task.DasSyncDataTask" />
+	<bean id="updateLowerDeviceStatus" class="com.znsx.cms.service.task.UpdateLowerDeviceStatusTask" />
+	<bean id="checkPlatformTask" class="com.znsx.cms.service.task.CheckPlatformTask" />
+	<bean id="reduceTask" class="com.znsx.cms.service.task.ReduceTask" />
+
+	<task:scheduled-tasks>
+		<task:scheduled ref="sysLogTask" method="saveLog" cron="0/5 * * * * ?" />
+		<task:scheduled ref="checkSessionTask" method="checkSession" cron="0 0/2 * * * ?" />
+		<task:scheduled ref="updateDeviceListenerTask" method="updateTime"
+			cron="0 0/5 * * * ?" />
+		<task:scheduled ref="dasSyncDataTask" method="syncVehicleDetector" cron="0 1 0 * * ?" />
+		<task:scheduled ref="updateLowerDeviceStatus" method="pushDeviceStatus" cron="0 0/2 * * * ?" />
+		<task:scheduled ref="checkPlatformTask" method="checkPlatform" cron="0 0/2 * * * ?" />
+		<task:scheduled ref="reduceTask" method="reduceByHour" cron="0 11 * * * ?" />
+		<task:scheduled ref="reduceTask" method="reduceByDay" cron="0 21 0 * * ?" />
+		<task:scheduled ref="reduceTask" method="reduceByMonth" cron="0 31 0 1 * ?" />
+	</task:scheduled-tasks>
+
+</beans>

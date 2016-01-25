@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="CmsPublishLog" proxy="com.znsx.cms.persistent.model.CmsPublishLog"
+		table="tm_cms_publish_log">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="stakeNumber" type="string">
+			<column name="stake_number" />
+		</property>
+		<property name="navigation" type="short">
+			<column name="navigation" />
+		</property>
+		<property name="infoType" type="short">
+			<column name="info_type" />
+		</property>
+		<property name="sendOrganId" type="string">
+			<column name="send_organ_id" />
+		</property>
+		<property name="sendOrganName" type="string">
+			<column name="send_organ_name" />
+		</property>
+		<property name="sendUserId" type="string">
+			<column name="send_user_id" />
+		</property>
+		<property name="sendUserName" type="string">
+			<column name="send_user_name" />
+		</property>
+		<property name="duration" type="integer">
+			<column name="duration" />
+		</property>
+		<property name="content" type="string">
+			<column name="content" />
+		</property>
+		<property name="color" type="string">
+			<column name="color" />
+		</property>
+		<property name="font" type="string">
+			<column name="font" />
+		</property>
+		<property name="size" type="string">
+			<column name="play_size" />
+		</property>
+		<property name="space" type="integer">
+			<column name="space" />
+		</property>
+		<property name="sendTime" type="timestamp">
+			<column name="send_time" />
+		</property>
+		<property name="x" type="integer">
+			<column name="x" />
+		</property>
+		<property name="y" type="integer">
+			<column name="y" />
+		</property>
+		<property name="rowSpace" type="integer">
+			<column name="row_space" />
+		</property>
+	</class>
+</hibernate-mapping>

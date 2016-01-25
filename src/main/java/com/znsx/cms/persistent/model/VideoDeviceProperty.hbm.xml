@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="VideoDeviceProperty" proxy="com.znsx.cms.persistent.model.VideoDeviceProperty"
+		table="sv_video_device_property">
+		<cache usage="read-write"/>
+		<id name="id" column="id">
+            <generator class="foreign">
+                <param name="property">device</param>
+            </generator>
+    	</id>
+		<property name="userName" type="string">
+			<column name="user_name" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" />
+		</property>
+		<property name="heartCycle" type="integer">
+			<column name="heart_cycle" />
+		</property>
+		<property name="storeType" type="short">
+			<column name="store_type" />
+		</property>
+		<property name="localStorePlan" type="string">
+			<column name="local_store_plan" />
+		</property>
+		<property name="centerStorePlan" type="string">
+			<column name="center_store_plan" />
+		</property>
+		<property name="protocol" type="string">
+			<column name="protocol" />
+		</property>
+		<property name="streamType" type="string">
+			<column name="stream_type" />
+		</property>
+		<property name="expand" type="string">
+			<column name="expand" />
+		</property>
+		<property name="imageId" type="long">
+			<column name="image_id" />
+		</property>
+		<property name="decode" type="string">
+			<column name="decode" />
+		</property>
+		<property name="owner" type="string">
+			<column name="owner" />
+		</property>
+		<property name="civilCode" type="string">
+			<column name="civil_code" />
+		</property>
+		<property name="block" type="double">
+			<column name="block" />
+		</property>
+		<property name="certNum" type="string">
+			<column name="cert_num" />
+		</property>
+		<property name="certifiable" type="integer">
+			<column name="certifiable" />
+		</property>
+		<property name="errCode" type="integer">
+			<column name="err_code" />
+		</property>
+		<property name="endTime" type="long">
+			<column name="end_time" />
+		</property>
+		<property name="secrecy" type="integer">
+			<column name="secrecy" />
+		</property>
+		<property name="storeStream" type="string">
+			<column name="store_stream" />
+		</property>
+		<one-to-one name="device" class="Device" constrained="true"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="UserSessionHistory" proxy="com.znsx.cms.persistent.model.UserSessionHistory"
+		table="sv_user_session_history">
+		<cache usage="read-write"/>
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="assigned" />
+		</id>
+		<property name="ticket" type="string">
+			<column name="ticket" />
+		</property>
+		<property name="userId" type="string">
+			<column name="user_id" />
+		</property>
+		<property name="organId" type="string">
+			<column name="organ_id" />
+		</property>
+		<property name="organName" type="string">
+			<column name="organ_name" />
+		</property>
+		<property name="path" type="string">
+			<column name="path" />
+		</property>
+		<property name="logonName" type="string">
+			<column name="logon_name" />
+		</property>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="logonTime" type="long">
+			<column name="logon_time" />
+		</property>
+		<property name="logoffTime" type="long">
+			<column name="logoff_time" />
+		</property>
+		<property name="ip" type="string">
+			<column name="ip" />
+		</property>
+		<property name="clientType" type="string">
+			<column name="client_type" />
+		</property>
+		<property name="kickFlag" type="short">
+			<column name="kick_flag" />
+		</property>
+	</class>
+</hibernate-mapping>

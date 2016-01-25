@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="LogOperation" proxy="com.znsx.cms.persistent.model.LogOperation"
+		table="sv_log_operation">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="operationType" type="string">
+			<column name="operation_type" />
+		</property>
+		<property name="operationName" type="string">
+			<column name="operation_name" />
+		</property>
+		<property name="operationCode" type="string">
+			<column name="operation_code" />
+		</property>
+	</class>
+</hibernate-mapping>

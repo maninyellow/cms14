@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="SolarDevice" proxy="com.znsx.cms.persistent.model.SolarDevice"
+		table="r_device_solar">
+		<cache usage="read-write" />
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		
+		<discriminator column="type" not-null="true" type="string" />
+		
+		<many-to-one name="solarBattery" column="solar_id" class="SolarBattery" />
+		
+		<subclass name="SolarDeviceCamera" proxy="com.znsx.cms.persistent.model.SolarDeviceCamera" discriminator-value="2">
+			<many-to-one name="camera" column="device_id" class="Camera" />
+		</subclass>
+		
+		<subclass name="SolarDeviceVD" proxy="com.znsx.cms.persistent.model.SolarDeviceVD" discriminator-value="10">
+			<many-to-one name="vd" column="device_id" class="VehicleDetector" />
+		</subclass>
+	</class>
+</hibernate-mapping>

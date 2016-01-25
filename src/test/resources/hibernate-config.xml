@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxPoolSize" value="${jdbc.maxActive}" />
+		<!-- c3p0 special configure -->
+		<property name="idleConnectionTestPeriod" value="600" />
+		<property name="preferredTestQuery" value="select 1" />
+		<property name="maxIdleTime" value="25000"/>
+	</bean>
+	<bean id="dataSourceDAS" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${das.jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${das.jdbc.url}" />
+		<property name="user" value="${das.jdbc.user}" />
+		<property name="password" value="${das.jdbc.password}" />
+		<property name="maxPoolSize" value="${das.jdbc.maxActive}" />
+		<!-- c3p0 special configure -->
+		<property name="idleConnectionTestPeriod" value="600" />
+		<property name="preferredTestQuery" value="select 1" />
+		<property name="maxIdleTime" value="25000"/>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定数据库方言 -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!-- 显示Hibernate持久化操作所生成的SQL -->
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<!-- 将SQL脚本进行格式化后再输出 -->
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<!-- 是否使用二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+				<!-- 是否使用查询二级缓存 -->
+				<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+				<!-- 二级缓存实例provider -->
+				<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+				<!-- memcached的配置文件名称 -->
+				<prop key="memcached.conf.file">${memcached.conf.file}</prop>
+				<!-- JDBC批量操作 -->
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+				<prop key="hibernate.order_inserts">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/znsx/cms/persistent/model/SysLog.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Device.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Manufacturer.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Organ.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PlatformServer.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PlatformServerProperty.hbm.xml
+				</value>
+				<value>com/znsx/cms/persistent/model/User.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/VideoDeviceProperty.hbm.xml
+				</value>
+				<value>com/znsx/cms/persistent/model/UserSession.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/UserFavorite.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Role.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MenuOperation.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Image.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PlayScheme.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Preset.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/RoleResourcePermission.hbm.xml
+				</value>
+				<value>com/znsx/cms/persistent/model/License.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DeviceModel.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/UserSessionHistory.hbm.xml
+				</value>
+				<value>com/znsx/cms/persistent/model/DeviceAlarm.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/LogOperation.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DeviceUpdateListener.hbm.xml
+				</value>
+				<value>com/znsx/cms/persistent/model/ResourceOperation.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DisplayWall.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Monitor.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SubPlatform.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SubPlatformResource.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/VehicleDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/WindSpeed.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/WeatherStat.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/LoLi.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/FireDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Covi.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/NoDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PushButton.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/ControlDevice.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Playlist.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PlayItem.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Policy.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PolicyDevice.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/TimePolicy.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/CmsPublishLog.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/StandardNumber.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/ServerInfo.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Event.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/EmUnit.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SchemeDictionary.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SchemeTemplet.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/TempletDictionary.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SchemeInstance.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SchemeStepInstance.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Resource.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Store.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Team.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Vehicle.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/ResourceUser.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/RoadMouth.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/ServiceZone.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/StakeNumberLib.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/AddressBook.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/PlaylistFolder.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/TypeDef.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SolarBattery.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SolarDevice.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/VisitRecord.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/CenterWorkRecord.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/BoxTransformer.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/ViDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/RoadDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/BridgeDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SyncVehicleDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/UrgentPhone.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/WallScheme.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/WallSchemeItem.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/CmsCommand.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/WorkPlan.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DeviceOnline.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DeviceOnlineReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DeviceAlarmReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DeviceFavorite.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/TmDevice.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/GPSDevice.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/HourVehichleDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DayVehichleDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MonthVehichleDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/HourWeatherStat.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DayWeatherStat.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MonthWeatherStat.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/HourRoadDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DayRoadDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MonthRoadDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/HourCoviDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DayCoviDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MonthCoviDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/HourLoliDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DayLoliDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MonthLoliDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/HourNoDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DayNoDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/MonthNoDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/SoundRecordLog.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/UserOperationLog.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/Classes.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="sessionFactoryDAS"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceDAS" />
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定数据库方言 -->
+				<prop key="hibernate.dialect">${das.hibernate.dialect}</prop>
+				<!-- 显示Hibernate持久化操作所生成的SQL -->
+				<prop key="hibernate.show_sql">${das.hibernate.show_sql}</prop>
+				<!-- 将SQL脚本进行格式化后再输出 -->
+				<prop key="hibernate.format_sql">${das.hibernate.format_sql}</prop>
+				<!-- 是否使用二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<!-- 是否使用查询二级缓存 -->
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<!-- 二级缓存实例provider -->
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+				<!-- memcached的配置文件名称 -->
+				<prop key="memcached.conf.file">${das.memcached.conf.file}</prop>
+				<!-- JDBC批量操作 -->
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+				<prop key="hibernate.order_inserts">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/znsx/cms/persistent/model/DasCms.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasControlDevice.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasCovi.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasDeviceStatus.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasLoli.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasNod.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasVd.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasWs.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasWst.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasTsl.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasLil.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasCmsReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasControlDeviceReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasCoviReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasDeviceStatusReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasLilReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasLoliReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasNodReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasTslReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasVdReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasWsReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasWstReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasViDetectorReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasViDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasRoadDetector.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasRoadDetectorReal.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasGps.hbm.xml</value>
+				<value>com/znsx/cms/persistent/model/DasGpsReal.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!--  
+	<bean id="transactionManagerDAS"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceDAS"></property>
+	</bean>
+	-->
+	<bean id="transactionManagerDAS"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactoryDAS"></property>
+	</bean>
+</beans>

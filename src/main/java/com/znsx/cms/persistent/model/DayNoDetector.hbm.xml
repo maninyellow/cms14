@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.znsx.cms.persistent.model">
+	<class name="DayNoDetector" proxy="com.znsx.cms.persistent.model.DayNoDetector"
+		table="day_no_detector">
+		<id name="id" type="string">
+			<column name="id" />
+			<generator class="uuid" />
+		</id>
+		<property name="standardNumber" type="string">
+			<column name="standard_number" />
+		</property>
+		<property name="noAvg" type="float">
+			<column name="no_avg" />
+		</property>
+		<property name="noMax" type="float">
+			<column name="no_max" />
+		</property>
+		<property name="noMin" type="float">
+			<column name="no_min" />
+		</property>
+		<property name="no2Avg" type="float">
+			<column name="no2_avg" />
+		</property>
+		<property name="no2Max" type="float">
+			<column name="no2_max" />
+		</property>
+		<property name="no2Min" type="float">
+			<column name="no2_min" />
+		</property>
+		<property name="dateTime" type="long">
+			<column name="date_time" />
+		</property>
+		
+	</class>
+</hibernate-mapping>
